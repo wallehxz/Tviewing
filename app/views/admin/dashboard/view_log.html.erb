@@ -1,0 +1,63 @@
+<%= content_for(:title,  '用户浏览历史 | Koogle') %>
+<section class="content-header">
+  <h1>
+    浏览历史 <small>用户行为</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>数据中心</a></li>
+    <li class="active"><i class="fa fa-user"></i> 浏览记录</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header">
+      <div class="row">
+        <div class="col-sm-5">
+          <form method="get">
+            <div class="form-group has-feedback">
+              <div class="input-group">
+                <input type="text" name="query" value="<%= params[:query]%>" class="form-control" placeholder="IP地址、地理位置、操作结果">
+                <span class="input-group-btn">
+                  <button class="btn btn-default btn-flat" type="submit"><i class="fa fa-search-plus"></i></button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+            <thead>
+              <tr>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">IP 地址</th>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">地理位置</th>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">操作行为</th>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">操作结果</th>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">用户昵称</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @logs.each do |item| %>
+              <tr>
+                <td><%= item.ip %></td>
+                <td><%= item.location %></td>
+                <td><%= item.action_name %></td>
+                <td><%= item.result %></td>
+                <td><%= item.user_name %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= will_paginate @logs, :class=>'apple_pagination' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

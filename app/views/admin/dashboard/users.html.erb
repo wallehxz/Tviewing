@@ -1,0 +1,120 @@
+<%= content_for(:title,  '用户列表 | Koogle') %>
+<section class="content-header">
+  <h1>
+    用户列表 <small>注册信息预览</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>数据中心</a></li>
+    <li class="active"><i class="fa fa-user"></i> 用户信息</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-warning">
+    <div class="box-header">
+      <div class="row">
+        <div class="col-sm-5">
+          <form action="<%= admin_users_path %>" method="get">
+            <div class="form-group has-feedback">
+              <div class="input-group">
+                <input type="text" name="query" value="<%= params[:query]%>" class="form-control" placeholder="键入用户昵称、邮箱">
+                <span class="input-group-btn">
+                  <button class="btn btn-default btn-flat" type="submit"><i class="fa fa-search-plus"></i></button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+            <thead>
+            <tr>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">头图</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">昵称</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">信息</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">勋章</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% cache [:users, @users.map{|x| x.updated_at}.max] do %>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td>
+                      <img src="<%= display_avatar user %>" width="100px">
+                    </td>
+                    <td>
+                      <span class="<%= role_bg_label user %>" style="font-size: 16px">
+                        <i class="fa fa-drupal"></i>
+                        <%= display_role user %>
+                      </span>
+                      <br><br>
+                      <span class="btn bg-maroon btn-flat" style="font-size: 16px">
+                        <i class="fa fa-user-secret"></i>
+                        <%= display_name user %>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="btn bg-black btn-flat" style="font-size: 16px">
+                        <i class="fa fa-map-marker"></i>
+                        <%= user.location || user.current_sign_in_ip %>
+                      </span>
+                      <br><br>
+                      <span class="btn bg-olive btn-flat" style="font-size: 16px">
+                        <i class="fa fa-envelope"></i>
+                        <%= user.email %>
+                      </span>
+                    </td>
+                    <td style="text-align: center">
+                      <img src="<%= rank_picture(user) %>" style="width:100px;" title="积分：<%= user.sign_in_count %>">
+                    </td>
+                    <td>
+                      <br>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-flat"><i class="fa fa-delicious"></i>&nbsp;用户权限</button>
+                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li>
+                            <a href="<%#= role_set_path(user_id:user.id, role:'looker') %>" class="btn bg-navy btn-flat">
+                              <i class="fa fa-drupal"></i>
+                              <span>小盆友</span>
+                            </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                            <a href="<%#= role_set_path(user_id:user.id, role:'fucker') %>" class="btn bg-orange btn-flat">
+                              <i class="fa fa-gavel"></i>
+                              <span>鉴黄师</span>
+                            </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                            <a href="<%#= role_set_path(user_id:user.id, role:'admin') %>" class="btn bg-purple btn-flat">
+                              <i class="fa fa-car"></i>
+                              <span>老司机</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= will_paginate @users, :class=>'apple_pagination', :previous_label => '上一页', :next_label => '下一页' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

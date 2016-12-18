@@ -1,0 +1,17 @@
+<div class="col-md-3 pc-show-item">
+  <div class="video-item">
+    <div class="poster">
+      <div class="icon">
+        <a href="<%= show_path(video.url_code)%>">
+          <i class="ion ion-play"></i>
+        </a>
+      </div>
+      <img src="<%= video_cover video.cover %>">
+    </div>
+    <div class="info">
+      <p class="title">
+        <i class="<%= video.column.icon %>">&nbsp;</i><%= video.title %>
+      </p>
+    </div>
+  </div>
+</div>

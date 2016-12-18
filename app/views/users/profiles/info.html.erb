@@ -1,0 +1,30 @@
+<div class="login">
+  <div style="text-align: center;padding-top: 30px;">
+    <img src="<%= display_avatar current_user %>" style="height: 100px;border-radius: 50%;">
+  </div>
+  <div class="login__form" style="margin-top: -50px;">
+    <form method="post" action="<%= update_info_path %>">
+      <div class="login__row">
+        <div class="ion-icon"><i class="ion ion-ios-barcode-outline"></i></div>
+        <input style="padding-left: 30px;color: #66FFCC;" type="text" value="<%= rank_name current_user %>" class="login__input name" placeholder="会员身份">
+      </div>
+      <div class="login__row">
+        <div class="ion-icon"><i class="ion ion-ios-chatboxes-outline"></i></div>
+        <input style="padding-left: 30px;color: #FFCC33;" type="text" name="nick_name" value="<%= current_user.nick_name %>" class="login__input name" placeholder="个性昵称">
+      </div>
+      <div class="login__row">
+        <div class="ion-icon"><i class="ion ion-ios-email-outline"></i></div>
+        <input style="padding-left: 30px;color: #CCFF33;" type="text" value="<%= current_user.email %>" class="login__input name" placeholder="邮箱账户">
+      </div>
+      <div class="login__row">
+        <div class="ion-icon"><i class="ion ion-ios-telephone-outline"></i></div>
+        <input style="padding-left: 30px;color: #FF6666;" type="text" name="phone" value="<%= current_user.phone %>" class="login__input name" placeholder="联系方式">
+      </div>
+      <div class="login__row">
+        <div class="ion-icon"><i class="ion ion-ios-location-outline"></i></div>
+        <input style="padding-left: 30px;color: #FFFF33;" type="text" value="北京<%#= current_user.location %>" class="login__input name" placeholder="地理位置">
+      </div>
+      <button id="submit" type="submit" class="login__submit">更新资料</button>
+    </form>
+  </div>
+</div>

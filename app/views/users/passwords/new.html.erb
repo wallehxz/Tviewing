@@ -1,0 +1,17 @@
+<div class="login">
+  <div style="text-align: center;">
+    <img src="<%= image_path('toutu/send_email.png')%>" style="height: 200px;">
+  </div>
+  <div class="login__form">
+    <%= form_for(resource, as: resource_name, url: forgot_password_path, html: { method: :post }) do |f| %>
+      <div class="login__row">
+        <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+          <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"></path>
+        </svg>
+        <input type="text" id="email" name="user[email]" class="login__input name" autofocus="true" placeholder="<%= model_errors(resource,'email') || 'Email' %>">
+      </div>
+      <button id="submit" type="submit" class="login__submit">发送确认邮件</button>
+    <% end %>
+    <%= render :partial=>'users/shared' %>
+  </div>
+</div>

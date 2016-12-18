@@ -1,0 +1,64 @@
+<% num = rand(4) %>
+<%= render :partial=>'shared/cute_slider' %>
+<section id="videodetail" class="index-video-padding">
+  <div class="container">
+    <div class="row" id="vidoes">
+      <% @videos.each do |video| %>
+        <%= render partial:'shared/video_item', locals:{ video:video } %>
+      <% end %>
+    </div>
+    <div id='more' class="text-center">
+      <a id='load_more' href="javascript:void(0)" class="btn btn-<%= rand_background num %>" onclick="videos_more(2)">
+        浏览更多
+      </a>
+    </div>
+    <div id="load_bar" class="progress">
+      <div class="progress-bar progress-bar-<%= rand_background num %> progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+        <span class="sr-only">20% Complete</span>
+      </div>
+    </div>
+  </div>
+</section>
+<%= content_for :javascript do %>
+<script>
+  function videos_more(page){
+    var next_page = parseInt(page) + 1;
+    $('#more').css('display','none');
+    $('#load_bar').css('display','block');
+    $('#load_more').attr('onclick',"videos_more("+ next_page +")");
+    load_progress(5);
+    $.get("<%= video_more_path %>",{page: page}, function(data){
+      setTimeout(function(){
+        $('#more').css('display','block');
+        $('#load_bar').css('display','none');
+        $('.progress-bar').css('width','0%');
+        if(data != ''){
+          $('#vidoes').append(data);
+        }else{
+          $('.load_more').html('<h4>感谢您对我们视频的支持！(+ _ +) </h4>').removeAttr('onclick');
+        }
+      },888);
+    })
+  }
+
+  function load_progress(time){
+    var timer = null
+    var i = 0;
+    var timer = setInterval(function(){
+      $('.progress-bar').css('width', i + '%');
+      i++;
+      if (i > 100) {
+        clearInterval(timer);
+      }
+    },time);
+  }
+
+  var cuteslider3 = new Cute.Slider();
+  cuteslider3.setup("cuteslider_3" , "cuteslider_3_wrapper");
+  cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_START, function(event){});
+  cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_END, function(event){});
+  cuteslider3.api.addEventListener(Cute.SliderEvent.WATING, function(event){});
+  cuteslider3.api.addEventListener(Cute.SliderEvent.CHANGE_NEXT_SLIDE, function(event){});
+  cuteslider3.api.addEventListener(Cute.SliderEvent.WATING_FOR_NEXT, function(event){});
+</script>
+<% end -%>

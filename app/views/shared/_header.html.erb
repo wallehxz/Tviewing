@@ -1,0 +1,63 @@
+<section id="banner" class="banner">
+  <div class="bg-color">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="<%= current_user.present?? rank_picture(current_user):image_path('logo.png') %>" class="img-responsive" style="width: 80px; margin-top: -16px;"></a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav pc_menu">
+              <li class="more_menu active">
+                <a>栏目&nbsp;
+                  <span>
+                    <i class="ion ion-arrow-down-b icon_pull"></i>
+                    <i class="ion ion-arrow-up-b icon_push"></i>
+                  </span>
+                </a>
+                <div class="menus">
+                  <ul>
+                    <% Column.general.asc_id.each do |column|%>
+                    <li><a href="<%= column_path(column.english) %>"><i class="<%= column.icon %>"></i>&nbsp;&nbsp;<%= column.name %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </li>
+              <% if current_user %>
+                <li class="user_menu">
+                  <a class="herd_user_info">
+                    <img src="<%= display_avatar(current_user)%>">
+                    <span><%= display_name(current_user)%></span>
+                  </a>
+                  <div class="menus">
+                    <ul>
+                      <%= render partial:'shared/user_link' %>
+                    </ul>
+                  </div>
+                </li>
+              <% else %>
+                <li><a href="<%= sign_up_path%>" target="_blank">注册&nbsp;<i class="fa fa-user-plus"></i></a></li>
+                <li><a href="<%= sign_in_path%>" target="_blank">登录&nbsp;<i class="fa fa-sign-in"></i></a></li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav mobile_menu">
+              <% Column.general.asc_id.each do |column|%>
+                <li><a href="<%= column_path(column.english) %>"><i class="<%= column.icon %>"></i>&nbsp;&nbsp;<%= column.name %></a></li>
+              <% end %>
+              <% if current_user %>
+                <%= render partial:'shared/user_link' %>
+              <% else %>
+                <li><a href="<%= sign_in_path%>"><i class="fa fa-vcard"></i>&nbsp;&nbsp;注册登录</a></li>
+              <% end%>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>

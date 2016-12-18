@@ -1,0 +1,70 @@
+<section class="sidebar">
+  <div class="user-panel">
+    <div class="pull-left image">
+      <img src="<%= display_avatar current_user %>" class="img-circle" alt="User Image">
+    </div>
+    <div class="pull-left info">
+      <p><%= current_user.nick_name %></p>
+      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+    </div>
+  </div>
+  <form action="<%= admin_search_path %>" method="get" class="sidebar-form">
+    <div class="input-group">
+      <input type="text" name="query" value="<%= params[:query] %>" class="form-control" placeholder="Search...">
+      <span class="input-group-btn">
+        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </form>
+  <ul class="sidebar-menu">
+    <li class="header">功能管理</li>
+    <li class="treeview <% if controller_name=='dashboard' && action_name=='index' %>active<% end %>">
+      <a href="<%= admin_root_path %>" target="_self">
+        <i class="ion ion-outlet"></i> <span>数据中心</span>
+      </a>
+    </li>
+    <li class="treeview <% if controller_name=='columns'%>active<% end %>">
+      <a href="<%= admin_columns_path %>" target="_self">
+        <i class="ion ion-ios-grid-view"></i> <span>栏目管理</span>
+      </a>
+    </li>
+    <li class="treeview <% if controller_name=='clouds'%>active<% end %>">
+      <a href="<%= admin_files_path %>" target="_self">
+        <i class="ion ion-upload"></i> <span>文件管理</span>
+        <span class="pull-right-container">
+          <small class="label pull-right bg-olive flat"><%= Cloud.count %></small>
+        </span>
+      </a>
+    </li>
+    <li class="treeview <% if controller_name=='dashboard' && action_name == 'users'%>active<% end %>">
+      <a href="<%= admin_users_path %>" target="_self">
+        <i class="ion ion-person-stalker"></i> <span>用户管理</span>
+        <span class="pull-right-container">
+          <small class="label pull-right bg-primary flat"><%= User.count %></small>
+        </span>
+      </a>
+    </li>
+    <li class="treeview <% if controller_name=='dashboard' && action_name == 'import'%>active<% end %>">
+      <a href="<%= import_path %>" target="_self">
+        <i class="ion ion-shuffle"></i> <span>导入数据</span>
+      </a>
+    </li>
+    <li class="treeview <% if controller_name=='dashboard' && action_name == 'view_log'%>active<% end %>">
+      <a href="<%= view_history_path %>" target="_self">
+        <i class="fa fa-globe"></i> <span>浏览行为</span>
+      </a>
+    </li>
+    <li class="header">功能导航</li>
+    <% Column.order('id').each do |item| %>
+      <li class="treeview <% if params[:english] == item.english || params[:column_id] == item.id.to_s %>active<% end %>">
+        <a href="<%= channel_path(item.english) %>">
+          <i class="<%= item.icon %>"></i> <span><%= item.name %></span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-red flat" style="width: 40px"><%= item.videos.count %></small>
+          </span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</section>

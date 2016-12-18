@@ -1,0 +1,62 @@
+<%= form_for(['admin',@column]) do |f| %>
+<div class="box-body">
+  <div class="col-md-4">
+    <div class="form-group has-error">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-image"></i>
+        </div>
+        <%= f.file_field :photo_file, class:'form-control', accept:'.jpg,.png,.jpeg', onChange:"addFileUlr(this,'imgpre')" %>
+      </div>
+      <img id="imgpre" src="<%= pre_cover @column.cover %>" style="max-width: 100%;padding-top: 10px"/>
+    </div>
+    <div class="form-group has-error">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-connectdevelop"></i>
+        </div>
+        <%= f.text_field :icon, class:'form-control', placeholder:'（必填* fa-icon ）' %>
+      </div>
+    </div>
+    <div class="form-group has-error">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-buysellads"></i>
+        </div>
+        <%= f.text_field :english, class:'form-control', placeholder:'（必填* english word）' %>
+      </div>
+      <p id="english_tip" style="display: none" >
+        <span style="color: #d33724">请填写相应的英文单词作为栏目</span>
+      </p>
+    </div>
+    <div class="form-group has-warning">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="glyphicon glyphicon-bookmark"></i>
+        </div>
+        <%= f.text_field :name, class:'form-control', placeholder:'（必填* 栏目展示名称）' %>
+      </div>
+    </div>
+    <div class="form-group has-warning">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="glyphicon glyphicon-link"></i>
+        </div>
+        <%= f.text_field :cover, class:'form-control', placeholder:'（必填* 头图文件链接）' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group has-feedback">
+      <div class="input-group">
+        <%= f.text_area :summary, class:'textarea', placeholder:'Place some text here', style:'width: 100%; mini-height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;' %>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <button type="submit" class="btn bg-maroon btn-flat" style="width: 120px">提交</button>
+      <a href="<%= admin_columns_path %>" class="btn bg-navy btn-flat" style="width: 120px">取消</a>
+    </div>
+  </div>
+</div>
+<% end %>
