@@ -15,7 +15,7 @@ SSHKit.config.command_map[:rails] = 'bundle exec rails'
 
 #Puma Server
 set :puma_init_active_record, true
-set :puma_threads, [4, 32]
+set :puma_threads, [0, 16]
 set :puma_workers, 2
 
 set :linked_files, %w{
