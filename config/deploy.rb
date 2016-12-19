@@ -7,8 +7,8 @@ set :ssh_options, { keys: %w{~/.ssh/id_rsa}, forward_agent: true, auth_methods: 
 set :scm, :git
 set :format, :pretty
 set :log_level, :debug
-set :keep_assets, 2
-set :keep_releases, 3
+set :keep_assets, 3
+set :keep_releases, 5
 
 SSHKit.config.command_map[:rake] = 'bundle exec rake'
 SSHKit.config.command_map[:rails] = 'bundle exec rails'
