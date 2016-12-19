@@ -5,6 +5,7 @@ settings.email_stmp_address = 'smtp.xx.com'
 settings.email_stmp_port = '587'
 settings.rake_cache_meta = "file:#{Rails.root}/tmp/rack/meta"
 settings.rake_cache_body = "file:#{Rails.root}/tmp/rack/body"
+#http://developer.qiniu.com/code/v6/sdk/ruby.html
 settings.qiniu_bucket = 'xxxxx'
 settings.qiniu_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 settings.qiniu_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -15,4 +16,6 @@ settings.baidu_ip_api_url = 'http://api.map.baidu.com'
 settings.youku_user_id = 'xxxxxxx'
 settings.youku_client_id = 'xxxxxxx'
 settings.youku_client_secret = 'xxxxxxxxxxxxxxxxx'
+settings.img_type = '.png.jpeg.jpg.gif'
+settings.vcd_type = '.mp4.mp3'
 settings.videojj_key = 'xxxxxxxxxxxxxxx'
