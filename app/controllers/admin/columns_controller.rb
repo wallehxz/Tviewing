@@ -16,7 +16,8 @@ class Admin::ColumnsController < Admin::BaseController
   end
 
   def create
-    @param[:cover] = Column.file_or_url(@param[:photo_file],@param[:cover])
+    @param[:cover] = Column.file_or_url(@param[:cover_file],@param[:cover])
+    @param[:avatar] = Column.file_or_url(@param[:avatar_file],@param[:avatar])
     @column = Column.new(column_params)
     if @column.save
       flash[:notice] = "新栏目#{@column.name}创建成功"
@@ -28,7 +29,8 @@ class Admin::ColumnsController < Admin::BaseController
   end
 
   def update
-    @param[:cover] = Column.file_or_url(@param[:photo_file], @param[:cover])
+    @param[:cover] = Column.file_or_url(@param[:cover_file],@param[:cover])
+    @param[:avatar] = Column.file_or_url(@param[:avatar_file],@param[:avatar])
     if @column.update(column_params)
       flash[:notice] = "栏目#{@column.name}更新成功"
       redirect_to admin_columns_path
@@ -93,7 +95,7 @@ class Admin::ColumnsController < Admin::BaseController
     end
 
     def column_params
-      params.require(:column).permit(:name, :english, :icon, :cover, :summary)
+      params.require(:column).permit(:name, :english, :icon, :cover, :avatar, :summary)
     end
 
     def set_param

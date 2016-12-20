@@ -62,6 +62,10 @@ module ApplicationHelper
     return "#{Settings.qiniu_cdn_host + url}!300x150"
   end
 
+  def column_avatar(url)
+    return "#{Settings.qiniu_cdn_host + url}!1920x525"
+  end
+
   def pre_cover(url)
     return "#{Settings.qiniu_cdn_host + url}" if url.present?
   end

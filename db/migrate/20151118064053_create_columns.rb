@@ -5,6 +5,7 @@ class CreateColumns < ActiveRecord::Migration
       t.string :english
       t.string :icon
       t.string :cover
+      t.string :avatar, default:''
       t.text :summary
 
       t.timestamps null: false

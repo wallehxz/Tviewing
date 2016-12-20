@@ -44,8 +44,8 @@ class Cloud < ActiveRecord::Base
     return file_name,file_path
   end
 
-  def self.rename_local_file(file)
-    file_name = "img_#{rename_ext_file(file)}"
+  def self.rename_local_file(pre,file)
+    file_name = pre + rename_ext_file(file)
   end
 
   #将 Base64 文件解析成本地文件
@@ -94,7 +94,7 @@ class Cloud < ActiveRecord::Base
 
   #本地文件上传至七牛服务器
   def self.cache_to_yun(file)
-    name = rename_local_file file
+    name = rename_ext_file file
     file_url = upload_yun(name,file.path)
     restore_to_sql name
     return name

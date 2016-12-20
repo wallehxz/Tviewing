@@ -4,11 +4,36 @@
     <div class="form-group has-error">
       <div class="input-group">
         <div class="input-group-addon">
+          <i class="glyphicon glyphicon-link"></i>
+        </div>
+        <%= f.text_field :cover, class:'form-control', placeholder:'（必填* 头图文件链接 1200x525）' %>
+      </div>
+      <img id="coverpre" src="<%= pre_cover @column.cover %>" style="max-width: 100%;padding-top: 10px"/>
+    </div>
+    <div class="form-group has-error">
+      <div class="input-group">
+        <div class="input-group-addon">
           <i class="fa fa-image"></i>
         </div>
-        <%= f.file_field :photo_file, class:'form-control', accept:'.jpg,.png,.jpeg', onChange:"addFileUlr(this,'imgpre')" %>
+        <%= f.file_field :cover_file, class:'form-control', accept:'.jpg,.png,.jpeg', onChange:"addFileUlr(this,'coverpre')" %>
       </div>
-      <img id="imgpre" src="<%= pre_cover @column.cover %>" style="max-width: 100%;padding-top: 10px"/>
+    </div>
+    <div class="form-group has-success">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="glyphicon glyphicon-link"></i>
+        </div>
+        <%= f.text_field :avatar, class:'form-control', placeholder:'（必填* 封面文件链接 1920x525）' %>
+      </div>
+      <img id="avatarpre" src="<%= pre_cover @column.avatar %>" style="max-width: 100%;padding-top: 10px"/>
+    </div>
+    <div class="form-group has-success">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-image"></i>
+        </div>
+        <%= f.file_field :avatar_file, class:'form-control', accept:'.jpg,.png,.jpeg', onChange:"addFileUlr(this,'avatarpre')" %>
+      </div>
     </div>
     <div class="form-group has-error">
       <div class="input-group">
@@ -35,14 +60,6 @@
           <i class="glyphicon glyphicon-bookmark"></i>
         </div>
         <%= f.text_field :name, class:'form-control', placeholder:'（必填* 栏目展示名称）' %>
-      </div>
-    </div>
-    <div class="form-group has-warning">
-      <div class="input-group">
-        <div class="input-group-addon">
-          <i class="glyphicon glyphicon-link"></i>
-        </div>
-        <%= f.text_field :cover, class:'form-control', placeholder:'（必填* 头图文件链接）' %>
       </div>
     </div>
   </div>
