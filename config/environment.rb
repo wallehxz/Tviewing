@@ -1,6 +1,8 @@
-Rails.application.middleware.use Rack::Cache, verbose: true,
-   metastore: Settings.rake_cache_meta,
-   entitystore: Settings.rake_cache_body
+require 'rack/cache'
+Rails.application.middleware.use Rack::Cache,
+  verbose: true,
+  metastore: Settings.rake_cache_meta,
+  entitystore: Settings.rake_cache_body
    # Load the Rails application.
 require File.expand_path('../application', __FILE__)
 

@@ -15,7 +15,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Veloup
+module Videos
   class Application < Rails::Application
 
     require Rails.root.join 'app/models/settings'
