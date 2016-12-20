@@ -21,7 +21,17 @@
           <%= f.select(:recommend, [['默认否',0],['选择是',1]], {},{:class => 'form-control'}) %>
         </div>
       </div>
-      <div class="form-group has-error">
+      <div class="form-group has-success">
+        <label>封面链接</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-link"></i>
+          </div>
+          <%= f.text_field :cover, class:'form-control', placeholder:'(选填)*' %>
+        </div>
+        <img id="imgpre" src="<%= pre_cover @video.cover %>" style="max-width: 100%;padding-top: 10px"/>
+      </div>
+      <div class="form-group has-success">
         <label>封面文件</label>
         <div class="input-group">
           <div class="input-group-addon">
@@ -29,7 +39,6 @@
           </div>
           <%= f.file_field :photo_file, class:'form-control', accept:'.jpg,.png,.jpeg,.gif', onChange:"addFileUlr(this,'imgpre')"%>
         </div>
-        <img id="imgpre" src="<%= pre_cover @video.cover %>" style="max-width: 100%;padding-top: 10px"/>
       </div>
       <div class="form-group has-error">
         <label>类别属性</label>
@@ -40,7 +49,7 @@
           <%= f.select(:video_type, Video.video_type_array, {prompt:'请选择类型'},{:class => 'form-control'}) %>
         </div>
       </div>
-      <div class="form-group has-feedback">
+      <div class="form-group has-warning">
         <label>视频时长</label>
         <div class="input-group">
           <div class="input-group-addon">
@@ -49,7 +58,7 @@
           <%= f.text_field :duration, :class => 'form-control', placeholder:'(选填)* ' %>
         </div>
       </div>
-      <div class="form-group has-error">
+      <div class="form-group has-warning">
         <label>视频标题</label>
         <div class="input-group">
           <div class="input-group-addon">
@@ -62,22 +71,13 @@
   </div>
   <div style="float: left;">
     <div class="col-sm-6">
-      <div class="form-group has-error">
+      <div class="form-group has-warning">
         <label>视频链接</label>
         <div class="input-group">
           <div class="input-group-addon">
             <i class="glyphicon glyphicon-info-sign"></i>
           </div>
           <%= f.text_field :video_url, :class => 'form-control', placeholder:'(必填)* ' %>
-        </div>
-      </div>
-      <div class="form-group has-success">
-        <label>封面链接</label>
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="glyphicon glyphicon-link"></i>
-          </div>
-          <%= f.text_field :cover, class:'form-control', placeholder:'(选填)*' %>
         </div>
       </div>
     </div>
