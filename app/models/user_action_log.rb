@@ -15,7 +15,7 @@ class UserActionLog < ActiveRecord::Base
     log.action = action
     log.result = result
     log.result = result
-    log.ip = ip
+    log.ip = ip.to_s
     log.location = User.cx_location(ip) if ip != '127.0.0.1'
     log.save
   end
