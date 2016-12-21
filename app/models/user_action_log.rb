@@ -1,7 +1,7 @@
   # t.integer  "user_id",    limit: 4
   # t.string   "action",     limit: 255
   # t.string   "result",     limit: 255
-  # t.string   "ip",         limit: 255
+  # t.string   "local_ip",   limit: 255
   # t.string   "location",   limit: 255
 
 class UserActionLog < ActiveRecord::Base
@@ -12,9 +12,9 @@ class UserActionLog < ActiveRecord::Base
   def self.generate(user,action,result,ip)
     log = UserActionLog.new
     log.user_id = user.present?? user.id : 0
-    log.action = ip
+    log.action = action
     log.result = result
-    log.ip = action
+    log.local_ip = ip
     log.location = User.cx_location(ip) if ip != '127.0.0.1'
     log.save
   end

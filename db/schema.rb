@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220093744) do
+ActiveRecord::Schema.define(version: 20161221091312) do
 
   create_table "clouds", force: :cascade do |t|
     t.string   "key",       limit: 255
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20161220093744) do
     t.integer  "user_id",    limit: 4
     t.string   "action",     limit: 255
     t.string   "result",     limit: 255
-    t.string   "ip",         limit: 255
+    t.string   "local_ip",   limit: 255
     t.string   "location",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
