@@ -188,8 +188,6 @@ GEM
       rest-client (~> 1.8.0)
       ruby-hmac (~> 0.4)
     rack (1.6.5)
-    rack-cache (1.6.1)
-      rack (>= 0.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -344,7 +342,6 @@ DEPENDENCIES
   pry-rails (= 0.3.4)
   puma (= 3.6.0)
   qiniu (= 6.8.0)
-  rack-cache (= 1.6.1)
   rails (= 4.2.7)
   rspec-rails (= 3.4.2)
   rspec-sidekiq (= 2.2.0)

@@ -13,7 +13,6 @@ class WelcomeController < ApplicationController
   end
 
   def column
-    binding.pry
     @column = Column.find_by_english(params[:english])
     if @column
       @videos = Video.where(column_id:@column.id).recent.paginate(:page=> 1)
