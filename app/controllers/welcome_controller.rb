@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     @columns = Column.general.asc_id
     @videos = Video.general.recent.paginate(:page=> 1)
-    UserActionLog.generate(current_user,1,env['REQUEST_PATH'],env['HTTP_X_REAL_IP'])
+    UserActionLog.generate(current_user,1,request.path,request.remote_ip)
   end
 
   def more_index
@@ -13,10 +13,11 @@ class WelcomeController < ApplicationController
   end
 
   def column
+    binding.pry
     @column = Column.find_by_english(params[:english])
     if @column
       @videos = Video.where(column_id:@column.id).recent.paginate(:page=> 1)
-      UserActionLog.generate(current_user,1,env['REQUEST_PATH'],env['HTTP_X_REAL_IP'])
+      UserActionLog.generate(current_user,1,request.path,request.remote_ip)
       if @column.id == 1 && current_user.nil?
         redirect_to sign_in_path
       elsif @column.id == 1 && current_user && current_user.nonage?
@@ -40,7 +41,7 @@ class WelcomeController < ApplicationController
       @video.increment(:view_count)
       @relates = @video.relates(4)
       @comments = @video.comments.latest
-      UserActionLog.generate(current_user,2,env['REQUEST_PATH'],env['HTTP_X_REAL_IP'])
+      UserActionLog.generate(current_user,2,request.path,request.remote_ip)
       if @video.column_id == 1 && current_user.nil?
         redirect_to sign_in_path
       elsif @video.column_id == 1 && current_user && current_user.nonage?
