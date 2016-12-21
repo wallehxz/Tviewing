@@ -134,7 +134,7 @@ class Cloud < ActiveRecord::Base
     bucket = Settings.qiniu_bucket #指定空间
     list_policy = Qiniu::Storage::ListPolicy.new(bucket,limit || 1000,prefix)
     code,result,headers = Qiniu::Storage.list(list_policy)
-    cloud_files = result['items']
+    cloud_files = result['items'] || []
     cloud_files.each do |file|
       Cloud.find_or_create_by(key: file['key']) do |item|
         item.size = file['fsize']
