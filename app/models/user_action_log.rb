@@ -12,9 +12,9 @@ class UserActionLog < ActiveRecord::Base
   def self.generate(user,action,result,ip)
     log = UserActionLog.new
     log.user_id = user.present?? user.id : 0
-    log.action = action
+    log.action = ip
     log.result = result
-    log.ip = "#{ip}"
+    log.ip = action
     log.location = User.cx_location(ip) if ip != '127.0.0.1'
     log.save
   end
