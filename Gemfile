@@ -19,7 +19,7 @@ gem 'puma', '3.6.0' #Server
 gem 'bcrypt', '3.1.10'# Use ActiveModel has_secure_password
 gem 'cancancan', '1.15.0' # User authorization
 gem 'devise','3.4.0' # User authentication
-# gem 'rack-cache', '1.6.1' # enable HTTP caching for application
+gem 'rack-cache', '1.6.1', require:'rack/cache'# enable HTTP caching for application
 
 group :production do
   gem 'lograge', '0.4.1'
