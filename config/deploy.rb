@@ -29,8 +29,6 @@ set :linked_dirs, %w{
   tmp/cache
   tmp/pids
   tmp/sockets
-  tmp/rack/meta
-  tmp/rack/body
   public/uploads
 }
 
