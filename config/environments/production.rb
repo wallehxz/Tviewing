@@ -20,13 +20,13 @@ Rails.application.configure do
   # For large-scale production use, consider using a caching reverse proxy like
   # NGINX, varnish or squid.
 
-  config.action_dispatch.rack_cache = {
-    :metastore    => "file:/var/cache/video/meta",
-    :entitystore  => "file:/var/cache/video/body",
-    :allow_reload => false # very changed
-  }
+  # config.action_dispatch.rack_cache = {
+  #   :metastore    => "file:/var/cache/video/meta",
+  #   :entitystore  => "file:/var/cache/video/body",
+  #   :allow_reload => false # very changed
+  # }
 
-  config.static_cache_control = "public, max-age=2592000" # changed
+  # config.static_cache_control = "public, max-age=2592000" # changed
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
