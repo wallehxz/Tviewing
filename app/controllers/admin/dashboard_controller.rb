@@ -37,13 +37,12 @@ class  Admin::DashboardController < Admin::BaseController
     end
   end
 
-  def view_log
+  def view_logs
     unless params[:query].present?
       @logs = UserActionLog.latest.paginate(page:params[:page])
     else
       @logs = UserActionLog.where("local_ip like '%#{params[:query]}%' OR result like '%#{params[:query]}%' OR location like '%#{params[:query]}%'").latest.paginate(page:params[:page])
     end
-
   end
 
 end

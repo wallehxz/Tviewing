@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   match '/admin/users', to:'admin/dashboard#users',via: :get, as: :admin_users
   match '/admin/channel/:english', to:'admin/dashboard#channel',via: :get, as: :channel
   match '/admin/import', to:'admin/dashboard#import',via: :get, as: :import
-  match '/admin/view/history', to:'admin/dashboard#view_log',via: :get, as: :view_history
+  match '/admin/view_logs', to:'admin/dashboard#view_logs',via: :get, as: :view_logs
   match '/admin/import/data', to:'admin/columns#import_data',via: :post, as: :import_data
   match '/admin/files', to:'admin/clouds#index',via: :get, as: :admin_files
   match '/admin/files/new', to:'admin/clouds#new',via: :get, as: :new_file
