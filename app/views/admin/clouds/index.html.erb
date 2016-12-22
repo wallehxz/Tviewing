@@ -58,7 +58,7 @@
                   </label><br><br>
                   <label class="btn bg-primary btn-flat">
                     <i class="glyphicon glyphicon-calendar"></i>
-                    <%= file.upload_at %>
+                    <%= time_ago_in_words(file.upload_at) %>
                   </label>
                 </td>
                 <td class="col-sm-3"><br>
