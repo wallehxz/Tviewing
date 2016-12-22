@@ -12,7 +12,7 @@ class Cloud < ActiveRecord::Base
 
   #获取七牛服务文件列表
   # Cattle.files_list
-  def self.files_list(prefix= '',marker = '')
+  def Cloud.files_list(prefix= '',marker = '')
     bucket = 'meteor' #指定空间
     limit = 10
     list_policy = Qiniu::Storage::ListPolicy.new(bucket,limit,prefix)
@@ -22,7 +22,7 @@ class Cloud < ActiveRecord::Base
   end
 
   #云存储文件统计
-  # Cattle.file_sum
+  # Cloud.file_sum
   def self.file_sum()
     bucket = 'meteor' #指定空间
     limit = 10000
