@@ -20,10 +20,9 @@ Rails.application.configure do
   # For large-scale production use, consider using a caching reverse proxy like
   # NGINX, varnish or squid.
 
-
   config.action_dispatch.rack_cache = {
-    :metastore    => Settings.rake_cache_meta,
-    :entitystore  => Settings.rake_cache_body,
+    :metastore    => "file:/var/cache/video/meta",
+    :entitystore  => "file:/var/cache/video/body",
     :allow_reload => false # very changed
   }
 
