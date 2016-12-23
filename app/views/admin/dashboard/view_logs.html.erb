@@ -37,16 +37,38 @@
                 <th tabindex="0" aria-controls="example1" style="text-align: center">操作行为</th>
                 <th tabindex="0" aria-controls="example1" style="text-align: center">操作结果</th>
                 <th tabindex="0" aria-controls="example1" style="text-align: center">用户昵称</th>
+                <th tabindex="0" aria-controls="example1" style="text-align: center">时间</th>
               </tr>
             </thead>
             <tbody>
               <% @logs.each do |item| %>
               <tr>
-                <td><%= item.local_ip %></td>
-                <td><%= item.location %></td>
-                <td><%= item.action_name %></td>
+                <td>
+                  <label class="btn bg-info btn-flat" style="font-size: 16px;width: 140px;">
+                    <i class="fa fa-sitemap"></i>
+                    <%= item.local_ip %>
+                  </label>
+                </td>
+                <td>
+                  <label class="btn bg-info btn-flat" style="font-size: 16px;">
+                    <i class="fa fa-map-marker"></i>
+                    <%= item.location %>
+                  </label>
+                </td>
+                <td>
+                  <label class="btn bg-info btn-flat" style="font-size: 16px;">
+                    <i class="fa fa-line-chart"></i>
+                    <%= item.action_name %>
+                  </label>
+                </td>
                 <td><%= item.result %></td>
                 <td><%= item.user_name %></td>
+                <td style="text-align: center;">
+                  <label class="btn bg-black btn-flat" style="font-size: 16px">
+                    <i class="fa fa-calendar-check-o"></i>
+                    <%= time_ago_in_words(item.created_at) %>
+                  </label>
+                </td>
               </tr>
               <% end %>
             </tbody>

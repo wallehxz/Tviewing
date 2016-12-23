@@ -1,7 +1,7 @@
 class  Admin::DashboardController < Admin::BaseController
 
   def index
-
+    @logs = UserActionLog.latest.limit(10)
   end
 
   def search
