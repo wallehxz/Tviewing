@@ -18,7 +18,7 @@
 
  $.widget.bridge('uibutton', $.ui.button);
 
- function addFileUlr(obj,id){
+function addFileUlr(obj,id){
   if (obj.files && obj.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
