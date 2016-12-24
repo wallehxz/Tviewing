@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <%= stylesheet_link_tag 'web', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'web', media: 'all' %>
   <%= favicon_link_tag 'logo.png', :rel => 'shortcut icon' %>
 </head>
 <body>
@@ -14,7 +14,7 @@
   <%= content_for :column_preface %>
   <%= yield %>
   <%= render :partial=>'shared/footer'%>
-  <%= javascript_include_tag 'web', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'web' %>
   <%= content_for(:javascript) %>
 </body>
 </html>
