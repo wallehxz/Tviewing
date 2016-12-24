@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
-  layout 'web'
   layout 'play', only: [:show]
+  layout 'web', only: [:index,:column]
 
   def index
     @columns = Column.general.asc_id
