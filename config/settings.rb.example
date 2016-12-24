@@ -1,4 +1,5 @@
 settings.host = 'http://xx.xxx'
+settings.play_http = 'http://xx.xxx'
 settings.devise_email = 'xxxx@xx.xx'
 settings.devise_password = 'xxxxxxxx'
 settings.email_stmp_address = 'smtp.xx.com'
