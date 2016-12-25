@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
-  before_filter :redirect_to_https
+  #before_filter :redirect_to_https
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       respond_to do |format|
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   def redirect_to_https
     if Rails.env == 'production'
       if action_name != 'show' && !request.ssl?
-        redirect_to "https://www.koogle.cc/#{request.fullpath}"
+        redirect_to :protocol=>'https://'
       elsif action_name == 'show' && request.ssl?
-        redirect_to "http://www.koogle.cc/#{request.fullpath}"
+        redirect_to :protocol=>'http://'
       end
     end
   end
