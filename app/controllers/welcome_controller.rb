@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :redirect_to_https, only:[:index,:column,:show]
+
   layout 'web', only: [:index,:column]
 
   def index
