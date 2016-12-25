@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   def redirect_to_https
     if Rails.env == 'production'
       if action_name != 'show' && !request.ssl?
-        redirect_to :protocol=> 'https://'
+        redirect_to "https://www.koogle.cc/#{request.fullpath}"
       elsif action_name == 'show' && request.ssl?
-        redirect_to :protocol=> 'http://'
+        redirect_to "http://www.koogle.cc/#{request.fullpath}"
       end
     end
   end
