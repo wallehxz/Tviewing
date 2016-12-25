@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout 'play', only: [:show]
+
   layout 'web', only: [:index,:column]
 
   def index
@@ -42,6 +42,7 @@ class WelcomeController < ApplicationController
       @relates = @video.relates(4)
       @comments = @video.comments.latest
       UserActionLog.generate(current_user,2,request.path,request.remote_ip)
+      render layout:'play'
       if @video.column_id == 1 && current_user.nil?
         redirect_to sign_in_path
       elsif @video.column_id == 1 && current_user && current_user.nonage?
