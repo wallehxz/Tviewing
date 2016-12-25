@@ -52,9 +52,11 @@ $('#confirmation').change(function(){
       reader.readAsDataURL(this.files[0]);
     })
     $('#btnZoomIn').on('click', function(){
+      alert('缩放图片');
       cropper.zoomIn();
     })
     $('#btnZoomOut').on('click', function(){
+      alert('放大图片');
       cropper.zoomOut();
     })
     $('#btnCrop').on('click', function(){
