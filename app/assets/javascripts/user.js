@@ -1,3 +1,5 @@
+//= require jquery
+//= require jquery_ujs
 //= require jquery-2.2.3.min
 //= require animation
 //= require cropbox
@@ -37,3 +39,29 @@ $('#confirmation').change(function(){
     return false;
   }
 });
+
+  $(window).load(function() {
+    var options = {thumbBox: '.thumbBox'}
+    var cropper = $('.imageBox').cropbox(options);
+    $('#upload-file').on('change', function(){
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        options.imgSrc = e.target.result;
+        cropper = $('.imageBox').cropbox(options);
+      }
+      reader.readAsDataURL(this.files[0]);
+    })
+    $('#btnZoomIn').on('click', function(){
+      cropper.zoomIn();
+    })
+    $('#btnZoomOut').on('click', function(){
+      cropper.zoomOut();
+    })
+    $('#btnCrop').on('click', function(){
+      var img = cropper.getDataURL();
+      $('.pre_round').attr('src',img);
+      $('.pre_square').attr('src',img);
+      $('#data').val(img);
+      $('.login__submit').removeAttr('disabled');
+    })
+  });
