@@ -1,5 +1,5 @@
 class Users::ProfilesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :redirect_to_https
   layout 'user'
 
   def avatar

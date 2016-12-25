@@ -1,4 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
+  before_filter :redirect_to_https
   layout 'user'
   # GET /forgot_password
   def new
