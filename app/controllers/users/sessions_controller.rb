@@ -1,5 +1,4 @@
 class Users::SessionsController < Devise::SessionsController
-  before_filter :redirect_to_https
   layout 'user'
 
   def new
