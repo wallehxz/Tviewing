@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
-  #before_filter :redirect_to_https
+  before_filter :redirect_to_https
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       respond_to do |format|
