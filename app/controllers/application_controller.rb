@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_https
+    puts env['SERVER_PROTOCOL'] + action_name
     if Rails.env == 'production'
       if action_name != 'show' && !request.ssl?
         puts env['SERVER_PROTOCOL']
