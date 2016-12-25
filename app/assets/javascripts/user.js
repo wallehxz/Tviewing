@@ -1,9 +1,9 @@
 //= require jquery-2.2.3.min
-//= require particles
-//= require nprogress
 //= require animation
-//= require particles.state
 //= require cropbox
+//= require nprogress
+//= require particles
+//= require particles.state
 
 $(document).on('page:fetch',function() { NProgress.start(); })
 $(document).on('page:change',function() { NProgress.done(); })

@@ -31,7 +31,7 @@
   </form>
 <div>
 <%= content_for :javascript do %>
-<script type="text/javascript">
+<script type="text/javascript" src="<%#= javascript_include_tag '', :cache => true %>">
   $(window).load(function() {
     var options = {thumbBox: '.thumbBox'}
     var cropper = $('.imageBox').cropbox(options);
