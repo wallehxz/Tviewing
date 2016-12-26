@@ -2,14 +2,14 @@
   <div class="video-item">
     <div class="poster">
       <div class="icon">
-        <a href="<%= Settings.play_http + "#{show_path(video.url_code)}" %>">
+        <a href="<%= show_path(video.url_code) %>">
           <i class="ion ion-play"></i>
         </a>
       </div>
       <img src="<%= video_cover video.cover %>">
     </div>
     <div class="info">
-      <a href="<%= Settings.play_http + "#{show_path(video.url_code)}" %>">
+      <a href="<%= show_path(video.url_code) %>">
         <p class="title">
           <i class="<%= video.column.icon %>">&nbsp;</i><%= video.title %>
         </p>

@@ -1,4 +1,5 @@
 class Users::ProfilesController < ApplicationController
+  force_ssl if Rails.env.production?
   before_filter :authenticate_user!
   layout 'user'
 
