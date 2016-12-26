@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
 
+  #force_ssl except:[:show] if Rails.env.development?
+
   layout 'web', only: [:index,:column]
-  force_ssl except:[:show] if Rails.env.production?
 
   def index
     @columns = Column.general.asc_id
