@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  force_ssl if Rails.env.production?
+  force_ssl if: :ssl_configured?
   layout 'user'
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]

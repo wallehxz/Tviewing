@@ -1,5 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
-  force_ssl if Rails.env.production?
+  force_ssl if: :ssl_configured?
   layout 'user'
   # GET /forgot_password
   def new

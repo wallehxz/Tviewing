@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
-  force_ssl if Rails.env.production?
+  force_ssl if: :ssl_configured?
+
   layout 'user'
 
   def new

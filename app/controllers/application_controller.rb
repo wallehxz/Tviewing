@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   # def redirect_to_https
   #   if Rails.env == 'production'
   #     if action_name != 'show' && !request.ssl?

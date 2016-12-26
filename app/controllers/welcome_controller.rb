@@ -1,12 +1,8 @@
 class WelcomeController < ApplicationController
 
-  force_ssl except:[:show] if: :ssl_configured?
+  force_ssl except:[:show], if: :ssl_configured?
 
   layout 'web', only: [:index,:column]
-
-  def ssl_configured?
-    !Rails.env.development?
-  end
 
   def index
     @columns = Column.general.asc_id
@@ -42,14 +38,15 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    redirect_to "http://#{request.host}#{request.fullpath}" if request.ssl?
+    return redirect_to "http://#{request.host}#{request.fullpath}" if request.ssl?
+    binding.pry
     @video = Video.find_by_url_code(params[:url_code])
     if @video
       @video.increment(:view_count)
       @relates = @video.relates(4)
       @comments = @video.comments.latest
       UserActionLog.generate(current_user,2,request.path,request.remote_ip)
-      render :protocol=> 'https://', layout:'play'
+      render layout:'play'
       if @video.column_id == 1 && current_user.nil?
         redirect_to sign_in_path
       elsif @video.column_id == 1 && current_user && current_user.nonage?
