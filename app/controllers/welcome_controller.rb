@@ -4,6 +4,10 @@ class WelcomeController < ApplicationController
 
   layout 'web', only: [:index,:column]
 
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   def index
     @columns = Column.general.asc_id
     @videos = Video.general.recent.paginate(:page=> 1)
@@ -39,7 +43,6 @@ class WelcomeController < ApplicationController
 
   def show
     return redirect_to "http://#{request.host}#{request.fullpath}" if request.ssl?
-    binding.pry
     @video = Video.find_by_url_code(params[:url_code])
     if @video
       @video.increment(:view_count)
