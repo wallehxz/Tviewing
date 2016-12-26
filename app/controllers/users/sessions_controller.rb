@@ -3,6 +3,10 @@ class Users::SessionsController < Devise::SessionsController
 
   layout 'user'
 
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   def new
   end
 

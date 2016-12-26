@@ -25,16 +25,11 @@ class  Admin::DashboardController < Admin::BaseController
   end
 
   def role_control
-    if Settings.role_string.include?(params[:role])
-      role_user = User.find(params[:user_id])
-      role_user.role = params[:role]
-      role_user.save
-      flash[:notice] ="『#{display_name role_user}』变更为「#{display_role role_user}」"
-      redirect_to users_path
-    else
-      flash[:error] ="权限操作失败"
-      redirect_to users_path
-    end
+    user = User.find(params[:user_id])
+    user.role = params[:role_id]
+    user.save
+    flash[:notice] ="『#{user.display_name}』变更为「#{user.role_name}」"
+    redirect_to admin_users_path
   end
 
   def view_logs

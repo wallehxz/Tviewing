@@ -3,6 +3,10 @@ class Users::ProfilesController < ApplicationController
   before_filter :authenticate_user!
   layout 'user'
 
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   def avatar
   end
 

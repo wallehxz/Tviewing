@@ -81,21 +81,21 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                           <li>
-                            <a href="<%#= role_set_path(user_id:user.id, role:'looker') %>" class="btn bg-navy btn-flat">
+                            <a href="<%= set_user_role_path(user.id,1) %>" class="btn bg-navy btn-flat">
                               <i class="fa fa-drupal"></i>
                               <span>小盆友</span>
                             </a>
                           </li>
                           <li class="divider"></li>
                           <li>
-                            <a href="<%#= role_set_path(user_id:user.id, role:'fucker') %>" class="btn bg-orange btn-flat">
+                            <a href="<%= set_user_role_path(user.id,2) %>" class="btn bg-orange btn-flat">
                               <i class="fa fa-gavel"></i>
                               <span>鉴黄师</span>
                             </a>
                           </li>
                           <li class="divider"></li>
                           <li>
-                            <a href="<%#= role_set_path(user_id:user.id, role:'admin') %>" class="btn bg-purple btn-flat">
+                            <a href="<%= set_user_role_path(user.id,0) %>" class="btn bg-purple btn-flat">
                               <i class="fa fa-car"></i>
                               <span>老司机</span>
                             </a>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   match '/admin/files/update', to:'admin/clouds#update',via: :post, as: :update_file
   match '/admin/files/:id', to:'admin/clouds#destroy',via: :get, as: :delete_file
   match '/admin/videos/:id/export', to:'admin/columns#export_videos',via: :get, as: :export_videos
+  match '/admin/user/:user_id/role/:role_id', to:'admin/dashboard#role_control',via: :get, as: :set_user_role
 
   devise_for :users
 

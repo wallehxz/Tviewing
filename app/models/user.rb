@@ -90,4 +90,8 @@ class User < ActiveRecord::Base
       return coun + city
     end
   end
+
+  def role_name
+    {0=>'老司机',1=>'小盆友',2=>'鉴黄师'}[self.role]
+  end
 end

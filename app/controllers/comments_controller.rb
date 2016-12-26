@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
   force_ssl if: :ssl_configured?
+
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   def create
     @comment = Comment.create(comment_params)
     UserActionLog.generate(current_user,3,@comment.id,request.remote_ip) if @comment.reply_id.nil?
