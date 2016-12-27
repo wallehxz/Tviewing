@@ -20,7 +20,7 @@ class Column < ActiveRecord::Base
   scope :latest, ->{ order(updated_at: :desc) }
   scope :recent, ->{ order(created_at: :desc) }
   scope :general, ->{ where("id != 1")}
-  scope :qvode, ->{ where("id == 1")}
+  scope :qvode, ->{ where(id:1) }
   scope :asc_id, ->{ order(id: :asc) }
   scope :desc_id, ->{ order(id: :desc) }
 

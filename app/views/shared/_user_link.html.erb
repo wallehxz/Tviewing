@@ -1,3 +1,7 @@
+<% if current_user.adult? %>
+  <% column = Column.qvode.first %>
+  <li><a href="<%= column_path(column.english) %>"><i class="<%= column.icon %>"></i>&nbsp;&nbsp;<%= column.name %></a></li>
+<% end %>
 <li><a href="<%= user_avatar_path %>"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;个性头像</a></li>
 <li><a href="<%= user_info_path %>"><i class="fa fa-vcard"></i>&nbsp;&nbsp;账户信息</a></li>
 <li><a href="<%= sign_out_path %>"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;安全登出</a></li>
