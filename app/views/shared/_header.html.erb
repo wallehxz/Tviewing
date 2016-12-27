@@ -53,6 +53,10 @@
               <% Column.general.asc_id.each do |column|%>
                 <li><a href="<%= column_path(column.english) %>"><i class="<%= column.icon %>"></i>&nbsp;&nbsp;<%= column.name %></a></li>
               <% end %>
+              <% if current_user && current_user.adult? %>
+                <% column = Column.qvode.first %>
+                <li><a href="<%= column_path(column.english) %>"><i class="<%= column.icon %>"></i>&nbsp;&nbsp;<%= column.name %></a></li>
+              <% end %>
               <% if current_user %>
                 <%= render partial:'shared/user_link' %>
               <% else %>
