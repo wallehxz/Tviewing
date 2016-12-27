@@ -1,5 +1,13 @@
+@font-face {
+ font-family: 'YueYuan';
+ /*src: asset_url('lte/fonts/zzgf/yueyuan.ttf') format('truetype');*/
+ src: url('https://ogs7lfzqz.qnssl.com/uCBohHbG70EJOqVgnmWl.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
 body {
- font-family: 'Helvetica','Arial','SimSun',Sans-serif;
+ font-family: 'YueYuan';
  line-height: 20px;
  color: #999999;
  font-size: 300;
@@ -26,7 +34,6 @@ table {
 }
 h1, h2, h3, h4, h5, h6
 {
- font-family: 'Helvetica','Arial','SimSun',Sans-serif;
  font-weight: 600;
  color: #222222;
 }
@@ -80,7 +87,6 @@ banner
 
 .navbar-brand
 {
-  font-family: 'Helvetica','Arial','SimSun',Sans-serif;
   font-size: 32px;
 }
 
@@ -215,7 +221,6 @@ i.icon_pull {
   color: #fff;
 }
 .banner-text h1{
-  font-family: 'Helvetica','Arial','SimSun',Sans-serif;
   font-size: 35px;
   text-transform: uppercase;
   padding-bottom:15px;
@@ -227,7 +232,6 @@ i.icon_pull {
 }
 
 .banner-text a{
-  font-family: 'Helvetica','Arial','SimSun',Sans-serif;
   font-size: 16px;
 }
 .banner-text a:hover{
@@ -346,7 +350,13 @@ videodetail
   padding-bottom: 5px;
   background-color: #ebebeb;
   color: #77797f;
-
+  a {
+    color:#330033;
+    text-decoration:none;
+  }
+  a:hover {
+    color:#3399FF;
+  }
   .title {
     font-size: 20px;
     white-space: nowrap;
@@ -355,7 +365,7 @@ videodetail
   }
 
   .time {
-    font-family: 'Helvetica','Arial','SimSun',Sans-serif;
+
   }
   .date {
     float: right;
@@ -385,7 +395,6 @@ videodetail
     font-size: 30px;
   }
   .time {
-    font-family: 'Helvetica','Arial','SimSun',Sans-serif;
     font-size: 20px;
     color: #000;
     .date{
@@ -475,7 +484,6 @@ video comments
     padding: 10px 10px;
     border-radius: 5px;
     textarea {
-      font-family: 'Helvetica','Arial','SimSun',Sans-serif;
       outline: none;
       -webkit-appearance: none;
       padding: .2rem;
@@ -502,7 +510,6 @@ video comments
       text-decoration: none;
     }
     span {
-      font-family: 'Helvetica','Arial','SimSun',Sans-serif;
       color: red;
       float: right;
       margin-top: -5px;
@@ -538,7 +545,6 @@ video comments
 }
 
 .com-details {
-  font-family: 'Helvetica','Arial','SimSun',Sans-serif;
   background: #fff;
   padding: 10px 10px 1px 10px;
   margin-bottom: 15px;
@@ -608,7 +614,6 @@ video comments
   }
 
   .user-info .vote_sum {
-    font-family: 'Helvetica','Arial','SimSun',Sans-serif;
     font-size: 18px;
     color: #FF6666;
   }
@@ -680,7 +685,6 @@ video comments
     color: #fff;
   }
   .user-info .vote_sum {
-    font-family: 'Helvetica','Arial','SimSun',Sans-serif;
     font-size: 18px;
     float: right;
     padding-top: 23px;
@@ -694,7 +698,6 @@ video comments
 footer
 ***************************************/
 #footer{
-  font-family: 'Helvetica','Arial','SimSun',Sans-serif;
   background-color: #325C6A;
 }
 .ftr-tle {
