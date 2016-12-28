@@ -30,8 +30,12 @@ class Admin::CloudsController < Admin::BaseController
   end
 
   def update
-    ext = @file.mine_type.split('/')[1]
-    full_name = "#{params[:new].split('.')[0]}.#{ext}"
+    if params[:new].split('.')[1]
+      full_name = params[:new]
+    else
+      ext = @file.mine_type.split('/')[1]
+      full_name = "#{params[:new]}.#{ext}"
+    end
     if Cloud.rename_yun_file_name(@file.key,full_name)
       @file.update_attributes(key:full_name)
       flash[:success] = '文件重命名成功'
