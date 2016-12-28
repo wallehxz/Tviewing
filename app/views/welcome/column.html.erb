@@ -1,4 +1,12 @@
 <%= content_for(:title, @column.name + ' | Koogle') %>
+<% content_for :meta do %>
+  <meta property="og:title" content="<%= @column.name %> | Koogle">
+  <meta property="og:type" content="video">
+  <meta property="og:url" content="<%= Settings.host + "#{column_path(@column.english)}" %>">
+  <meta property="og:image" content="<%= carousel_cover @column.cover %>">
+  <meta property="og:site_name" content="在沉默中爆发 | Koogle">
+  <meta property="og:description" content="<%= @column.summary %>">
+<% end %>
 <% num = rand(4) %>
 <%= content_for :column_preface do %>
   <%= render partial:'shared/column_preface' %>
