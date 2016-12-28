@@ -11,7 +11,6 @@ class WelcomeController < ApplicationController
   def index
     @columns = Column.general.asc_id
     @videos = Video.general.recent.paginate(:page=> 1)
-    UserActionLog.generate(current_user,1,request.path,request.remote_ip)
   end
 
   def more_index

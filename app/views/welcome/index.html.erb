@@ -4,7 +4,7 @@
   <meta property="og:url" content="<%= Settings.host %>">
   <meta property="og:image" content="<%= carousel_cover @columns.first.cover %>">
   <meta property="og:site_name" content="在沉默中爆发 | Koogle">
-  <meta property="og:description" content="视频聚合小站,<%= Column.all.map{|x| x.name}.join(',') %>,总有一个视频是你的菜">
+  <meta property="og:description" content="视频聚合小站,<%= @columns.map{|x| x.name}.join(',') %>,总有一个视频是你的菜">
 <% end %>
 <% num = rand(4) %>
 <%= render :partial=>'shared/cute_slider' %>
