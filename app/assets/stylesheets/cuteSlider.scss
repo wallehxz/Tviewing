@@ -211,8 +211,8 @@
 	background-image:asset_url('slider/trans.png');
 }
 
-.cs-circleslight .br-next,
-.cs-circleslight .br-previous,
+/*.cs-circleslight .br-next,
+.cs-circleslight .br-previous,*/
 .cs-circleslight .br-slidecontrol ul li,
 .cs-circleslight .br-slidecontrol ul li .br-control-selected,
 .cs-circleslight .br-circle-timer .br-timer-dot,
@@ -225,8 +225,8 @@
 
 .cs-circleslight .br-previous,
 .cs-circleslight .br-next {
-	width:40px;
-	height:40px;
+	width:80px;
+	height:140px;
 	top:50%;
 	margin-top:-20px;
 	filter:none !important;
@@ -234,12 +234,14 @@
 
 .cs-circleslight .br-previous {
 	left:10px;
-	background-position:0px 0px;
+	/*background-position:0px 0px;*/
+	background-image:asset_url('slider/dotLeft.png');
 }
 
 .cs-circleslight .br-next {
 	right:10px;
-	background-position:-60px 0px;
+	/*background-position:-60px 0px;*/
+	background-image:asset_url('slider/dotRight.png');
 }
 
 @media (max-width: 969px){
