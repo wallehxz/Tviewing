@@ -4,7 +4,7 @@
       <p><%= com_reply_tip comment %><%= comment.content %></p>
     </div>
     <div class="user-info">
-      <a href="#" class="avatar"><img src="<%= come_user_avatar comment %>" alt="" class="img-responsive"></a>
+      <a href="#" class="avatar"><img src="<%= come_user_avatar comment %>"></a>
       <h3><%= com_user_name comment %></h3>
       <% if (comment.user_id != 0 && current_user.nil? )|| ( current_user.present? && current_user.id != comment.user_id && comment.user_id > 0)%>
         <span><a href="javasript:void(0)" class="reply" onclick="reply_user(<%=comment.user_id%>,'<%= display_name comment.user %>')"><i class="ion ion-chatboxes"></i></a></span>
