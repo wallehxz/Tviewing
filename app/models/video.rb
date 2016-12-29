@@ -100,14 +100,14 @@ class Video < ActiveRecord::Base
       ykh_com = Video.code_to_youku_hot_comment(youku_id,10)
       if ykh_com.length > 0
         ykh_com.each do |com|
-          Comment.create!(user_id:User.all.map(&:id).sample(1)[0],video_id:self.id,vote:rand(10) + 1,content:com['content'])
+          Comment.create!(user_id:User.all.map(&:id).sample(1)[0],video_id:self.id,vote:rand(10) + 1,content:Video.strip_emoji(com['content']))
         end
       end
       if ykh_com.length < 10
         yk_com = Video.code_to_youku_comment(youku_id,10 - ykh_com.length)
         if yk_com.length > 0
           yk_com.each do |com|
-            Comment.create!(user_id:User.all.map(&:id).sample(1)[0],video_id:self.id,vote:rand(10) + 1,content:com['content'])
+            Comment.create!(user_id:User.all.map(&:id).sample(1)[0],video_id:self.id,vote:rand(10) + 1,content:Video.strip_emoji(com['content']))
           end
         end
       end
@@ -137,6 +137,27 @@ class Video < ActiveRecord::Base
 
   def relates(number)
     Video.where(id != self.id).where(column_id:self.column_id).order("RAND()").limit(number)
+  end
+
+  def self.strip_emoji(text)
+    text = text.force_encoding('utf-8').encode
+    clean = ""
+
+    # symbols & pics
+    regex = /[\u{1f300}-\u{1f5ff}]/
+    clean = text.gsub regex, ""
+
+    # enclosed chars
+    regex = /[\u{2500}-\u{2BEF}]/ # I changed this to exclude chinese char
+    clean = clean.gsub regex, ""
+
+    # emoticons
+    regex = /[\u{1f600}-\u{1f64f}]/
+    clean = clean.gsub regex, ""
+
+    #dingbats
+    regex = /[\u{2702}-\u{27b0}]/
+    clean = clean.gsub regex, ""
   end
 
 end
