@@ -37,47 +37,47 @@
               </tr>
             </thead>
             <tbody>
-              <% cache [params[:english], @videos.map{|c| c.updated_at}.max] do %>
-              <% @videos.each do |video| %>
-              <tr>
-                <td class="col-sm-3">
-                  <a href="<%#= video_playing_path(video.url_code)%>" target="_blank">
-                    <img src="<%= list_cover video.cover %>" class="col-sm-12">
-                  </a>
-                </td>
-                <td class="col-sm-3">
-                  <label class="btn bg-maroon btn-flat" style="font-size: 16px" title="「<%= video.title %>」">
-                    <i class="fa fa-caret-square-o-right"></i>
-                    <%= video.title%>
-                  </label><br><br>
-                  <label class="btn bg-blue btn-flat" style="font-size: 16px">
-                    <i class="fa fa-video-camera"></i>
-                    <%= display_video_type video %>
-                  </label>
-                </td>
-                <td class="col-sm-3">
-                  <label class="btn bg-olive btn-flat" style="font-size: 16px" title="「<%= video.updated_at.strftime('%Y-%m-%d %H:%M:%S') %>」">
-                    <i class="fa fa-calendar-o"></i>
-                    <%= distance_of_time_in_words_to_now video.updated_at %>
-                  </label><br><br>
-                  <label class="btn bg-aqua btn-flat" style="font-size: 16px">
-                    <i class="fa fa-clock-o"></i>
-                    <%= video_time video.duration %>
-                  </label>
-                </td>
-                <td class="col-sm-1"><br>
-                  <a href="<%= edit_admin_column_video_path(video.column_id,video) %>" class="btn bg-navy btn-flat">
-                    <i class="glyphicon glyphicon-edit"></i>
-                    编辑
-                  </a>
-                  <br><br>
-                  <a href="<%= admin_column_video_path(video.column_id,video) %>" class="btn bg-red btn-flat" data-method="delete" data-confirm="确定删除么<%= video.title%>?">
-                    <i class="glyphicon glyphicon-trash"></i>
-                    删除
-                  </a>
-                </td>
-              </tr>
-              <% end %>
+              <% cache [params[:english], @videos.map{|c| c.id}.max, @videos.map{|c| c.updated_at}.max] do %>
+                <% @videos.each do |video| %>
+                <tr>
+                  <td class="col-sm-3">
+                    <a href="<%#= video_playing_path(video.url_code)%>" target="_blank">
+                      <img src="<%= list_cover video.cover %>" class="col-sm-12">
+                    </a>
+                  </td>
+                  <td class="col-sm-3">
+                    <label class="btn bg-maroon btn-flat" style="font-size: 16px" title="「<%= video.title %>」">
+                      <i class="fa fa-caret-square-o-right"></i>
+                      <%= video.title%>
+                    </label><br><br>
+                    <label class="btn bg-blue btn-flat" style="font-size: 16px">
+                      <i class="fa fa-video-camera"></i>
+                      <%= display_video_type video %>
+                    </label>
+                  </td>
+                  <td class="col-sm-3">
+                    <label class="btn bg-olive btn-flat" style="font-size: 16px" title="「<%= video.updated_at.strftime('%Y-%m-%d %H:%M:%S') %>」">
+                      <i class="fa fa-calendar-o"></i>
+                      <%= distance_of_time_in_words_to_now video.updated_at %>
+                    </label><br><br>
+                    <label class="btn bg-aqua btn-flat" style="font-size: 16px">
+                      <i class="fa fa-clock-o"></i>
+                      <%= video_time video.duration %>
+                    </label>
+                  </td>
+                  <td class="col-sm-1"><br>
+                    <a href="<%= edit_admin_column_video_path(video.column_id,video) %>" class="btn bg-navy btn-flat">
+                      <i class="glyphicon glyphicon-edit"></i>
+                      编辑
+                    </a>
+                    <br><br>
+                    <a href="<%= admin_column_video_path(video.column_id,video) %>" class="btn bg-red btn-flat" data-method="delete" data-confirm="确定删除么<%= video.title%>?">
+                      <i class="glyphicon glyphicon-trash"></i>
+                      删除
+                    </a>
+                  </td>
+                </tr>
+                <% end %>
               <% end %>
             </tbody>
           </table>

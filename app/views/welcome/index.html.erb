@@ -11,9 +11,11 @@
 <section id="videodetail" class="index-video-padding">
   <div class="container">
     <div class="row" id="vidoes">
+    <% cache [:index,@videos.map{|x| x.updated_at}.max] do %>
       <% @videos.each do |video| %>
         <%= render partial:'shared/video_item', locals:{ video:video } %>
       <% end %>
+    <% end %>
     </div>
     <div id='more' class="text-center">
       <a id='load_more' href="javascript:void(0)" class="btn btn-<%= rand_background num %>" onclick="videos_more(2)">

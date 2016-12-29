@@ -67,17 +67,19 @@
   <div class="row">
     <div class="col-md-12">
       <ul class="timeline">
-      <% @logs.each do |item| %>
-        <li>
-          <i class="fa <%= item.action_icon %>"></i>
-          <div class="timeline-item">
-            <span class="time"><i class="fa fa-clock-o"></i> <%= item.created_at.strftime("%m-%d %H:%M")%></span>
-            <h3 class="timeline-header"><a>[<%= item.local_ip %>]</a><%= item.user_name %> 于 <a><%= item.location %></a> <%= item.action_name %></h3>
-            <div class="timeline-body">
-              <a><%= item.result %></a>
+      <% cache [@logs.map{|x| x.updated_at}.max] do%>
+        <% @logs.each do |item| %>
+          <li>
+            <i class="fa <%= item.action_icon %>"></i>
+            <div class="timeline-item">
+              <span class="time"><i class="fa fa-clock-o"></i> <%= item.created_at.strftime("%m-%d %H:%M")%></span>
+              <h3 class="timeline-header"><a>[<%= item.local_ip %>]</a><%= item.user_name %> 于 <a><%= item.location %></a> <%= item.action_name %></h3>
+              <div class="timeline-body">
+                <a><%= item.result %></a>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% end -%>
       <% end -%>
       </ul>
     </div>

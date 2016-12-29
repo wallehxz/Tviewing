@@ -40,7 +40,7 @@
             </tr>
             </thead>
             <tbody>
-            <% cache [:users, @users.map{|x| x.updated_at}.max] do %>
+            <% cache [:users, @users.first.id, @users.map{|x| x.updated_at}.max] do %>
                 <% @users.each do |user| %>
                   <tr>
                     <td>
