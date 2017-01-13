@@ -37,7 +37,7 @@ module Videos
 
     config.generators do |g| #测试框架
       g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_girl
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
     config.action_mailer.delivery_method = :smtp

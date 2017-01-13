@@ -39,8 +39,8 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails', '4.6.0'
   gem 'rspec-rails', '3.4.2'
+  gem 'factory_girl_rails', '4.6.0'
   gem 'json_spec', '1.1.4' #RSpec matchers and Cucumber steps for testing JSON content
   gem 'rspec-sidekiq', '2.2.0'
   gem 'simplecov', '0.9.2', require: false

@@ -3,8 +3,6 @@ settings.devise_email = 'xxxx@xx.xx'
 settings.devise_password = 'xxxxxxxx'
 settings.email_stmp_address = 'smtp.xx.com'
 settings.email_stmp_port = '587'
-settings.rake_cache_meta = "file:#{Rails.root}/tmp/rack/meta"
-settings.rake_cache_body = "file:#{Rails.root}/tmp/rack/body"
 #http://developer.qiniu.com/code/v6/sdk/ruby.html
 settings.qiniu_bucket = 'xxxxx'
 settings.qiniu_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
