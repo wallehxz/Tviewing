@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  force_ssl if: :ssl_configured?
+  #force_ssl if: :ssl_configured?
 
   def ssl_configured?
     !Rails.env.development?
