@@ -54,7 +54,7 @@
     $('#com_submit').html('回复 ['+ name +'] 评论');
   };
   function vote_com(comment,vote){
-    $.get(<%= Settings.host %> + '/comment/vote/'+ comment, function(data){})
+    $.get( "<%= Settings.host %>/comment/vote/"+ comment, function(data){})
     $('#vote_' + comment).removeAttr('onclick');
     $('#vote_sum_' + comment).html('['+ vote +'+]');
   };
@@ -75,7 +75,7 @@
       params['comment']['reply_id'] = $('#reply_id').val();
       params['comment']['user_id'] = $('#user_id').val();
       params['comment']['content'] = $('#comment_id').val();
-      $.post(<%= Settings.host %> + '/comments/create', params, function(data){
+      $.post("<%= Settings.host %>/comments/create", params, function(data){
         $('#comments').prepend(data);
         $('#comment_id').val('');
         $('#reply_id').val('');
