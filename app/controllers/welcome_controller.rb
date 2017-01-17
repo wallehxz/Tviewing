@@ -10,7 +10,11 @@ class WelcomeController < ApplicationController
 
   def index
     @columns = Column.general.asc_id
-    @videos = Video.general.recent.paginate(:page=> 1)
+    if params[:q].blank?
+      @videos = Video.general.recent.paginate(:page=> 1)
+    else
+      @videos = Video.general.where("title like '%#{params[:q]}%'")
+    end
   end
 
   def more_index

@@ -271,6 +271,46 @@ i.icon_pull {
   }
 }
 
+.search {
+  transition: width 1s;
+  line-height: 46px;
+  font-size: 25px;
+  padding-left: 30px;
+  margin-right: 10px;
+  border:0;
+  width: 250px;
+  color:white;
+  outline:none;
+  background: transparent;
+  z-index: 100;
+}
+
+.serach_form:hover > .search{
+  transition: width 1s;
+  width: 500px;
+  border-bottom:#ffffff 1px solid;
+}
+
+.searc_sub {
+  line-height: 45px;
+  background: transparent;
+  border:0;
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  float: right;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ffffff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #ffffff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #ffffff;
+}
+
 /**************************************
 videodetail
 ***************************************/
@@ -480,7 +520,7 @@ video comments
   }
   .form-table{
     background-color: #fff;
-    height: 155px;
+    min-height: 168px;
     padding: 10px 10px;
     border-radius: 5px;
     textarea {
