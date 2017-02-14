@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
     if params[:q].blank?
       @videos = Video.general.recent.paginate(:page=> 1)
     else
-      @videos = Video.general.where("title like '%#{params[:q]}%'")
+      @videos = Video.general.where("title LIKE '%#{params[:q]}%'")
     end
   end
 
