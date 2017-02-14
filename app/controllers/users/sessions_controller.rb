@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
     elsif !user
       new = User.create(new_params)
       sign_in(new)
-      UserActionLog.generate(current_user,7,env['REQUEST_PATH'],env['HTTP_X_REAL_IP'])
+      UserActionLog.generate(current_user,7,env['REQUEST_PATH'],current_user.current_sign_in_ip)
       redirect_to root_path
     elsif user && !user.valid_password?(params[:user][:password])
       flash[:password] = "密码错误"
@@ -27,7 +27,7 @@ class Users::SessionsController < Devise::SessionsController
       render :new
     else
       sign_in(user)
-      UserActionLog.generate(current_user,5,env['REQUEST_PATH'],env['HTTP_X_REAL_IP'])
+      UserActionLog.generate(current_user,5,env['REQUEST_PATH'],current_user.current_sign_in_ip)
       flash[:notice] = (t 'devise.sessions.signed_in')
       redirect_to root_path
     end

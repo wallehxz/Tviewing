@@ -24,10 +24,10 @@ class Video < ActiveRecord::Base
   #after_save :update_youku_comment
   before_save :truncate_video_url
 
-  scope :latest, -> {order(updated_at: :desc)}
-  scope :recent, ->{order(created_at: :desc)}
-  scope :general, ->{where('column_id != 1')}
-  scope :qvod, ->{where('column_id == 1')}
+  scope :latest, -> { order(updated_at: :desc) }
+  scope :recent, ->{ order(created_at: :desc) }
+  scope :general, ->{ where('column_id != 1') }
+  scope :qvod, ->{ where('column_id == 1') }
 
   self.per_page = 9
 

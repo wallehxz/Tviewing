@@ -6,4 +6,4 @@ set :deploy_to, '/var/koogle/video'
 set :rvm_custom_path, '/home/deploy/.rvm'
 set :rvm_roles, [:app, :web]
 
-server 'deploy@pv', user: 'deploy', port: 22, roles: %w[web app db], primary: true
+server 'deploy@apv', user: 'deploy', port: 22, roles: %w[web app db], primary: true
