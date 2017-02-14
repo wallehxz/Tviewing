@@ -11,7 +11,7 @@
 <section id="videodetail" class="index-video-padding">
   <div class="container">
     <div class="row" id="vidoes">
-      <% cache [:index,@videos.map{|x| x.updated_at}.max] do %>
+      <% cache [:index,@videos.map{|x| x.updated_at}.max,@videos.map{|x| x.id}.max] do %>
         <% @videos.each do |video| %>
           <%= render partial:'shared/video_item', locals:{ video:video } %>
         <% end %>
