@@ -2,7 +2,7 @@ class  Admin::DashboardController < Admin::BaseController
 
   def index
     @logs = UserActionLog.latest.limit(10)
-    @hot_videos = Video.where("updated_at > ?".Time.now.beginning_of_week).order(view_count: :desc).limit(8)
+    @hot_videos = Video.where("updated_at > ?",Time.now.beginning_of_week).order(view_count: :desc).limit(8)
   end
 
   def search
