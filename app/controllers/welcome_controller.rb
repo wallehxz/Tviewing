@@ -48,7 +48,7 @@ class WelcomeController < ApplicationController
     return redirect_to "http://#{request.host}#{request.fullpath}" if request.ssl?
     @video = Video.find_by_url_code(params[:url_code])
     if @video
-      @video.increment(:view_count)
+      @video.increment!(:view_count)
       @relates = @video.relates(4)
       @comments = @video.comments.latest
       UserActionLog.generate(current_user,2,request.path,request.remote_ip)

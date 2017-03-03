@@ -160,4 +160,8 @@ class Video < ActiveRecord::Base
     clean = clean.gsub regex, ""
   end
 
+  def background
+    ['bg-red','bg-yellow','bg-aqua','bg-blue','bg-light-blue','bg-green','bg-navy','bg-teal','bg-olive','bg-lime','bg-orange','bg-fuchsia','bg-purple','bg-maroon','bg-black'][rand(15)]
+  end
+
 end

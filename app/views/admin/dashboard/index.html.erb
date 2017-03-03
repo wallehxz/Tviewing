@@ -64,6 +64,24 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+  <% cache [@hot_videos.map{|x| x.updated_at}.max] do%>
+    <% @hot_videos.each do |item| %>
+      <div class="col-md-3 col-sm-6 col-xs-12" title="<%= item.title %>">
+        <div class="info-box">
+          <span class="info-box-icon <%= item.background %>"><i class="<%= item.column.icon %>"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text"><%= item.title %></span>
+            <span class="info-box-number"><%= item.view_count %></span>
+            <a href="<%= show_path(item.url_code) %>" style="font-size: 18px">more</a>
+          </div>
+        </div>
+      </div>
+    <% end%>
+  <% end%>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <ul class="timeline">
@@ -75,7 +93,7 @@
               <span class="time"><i class="fa fa-clock-o"></i> <%= item.created_at.strftime("%m-%d %H:%M")%></span>
               <h3 class="timeline-header"><a>[<%= item.local_ip %>]</a><%= item.user_name %> 于 <a><%= item.location %></a> <%= item.action_name %></h3>
               <div class="timeline-body">
-                <a><%= item.result %></a>
+                <a href="<%= Settings.host + item.result if '12'.include?(item.action) %>"><%= item.result %></a>
               </div>
             </div>
           </li>
