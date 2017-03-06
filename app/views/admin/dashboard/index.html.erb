@@ -66,7 +66,7 @@
   </div>
 
   <div class="row">
-  <% cache [@hot_videos.map{|x| x.updated_at}.max] do%>
+  <% cache [:view_videos, @hot_videos.map{|x| x.updated_at}.max] do%>
     <% @hot_videos.each do |item| %>
       <div class="col-md-3 col-sm-6 col-xs-12" title="<%= item.title %>">
         <div class="info-box">
@@ -85,7 +85,7 @@
   <div class="row">
     <div class="col-md-12">
       <ul class="timeline">
-      <% cache [@logs.map{|x| x.updated_at}.max] do%>
+      <% cache [:action_logs, @logs.map{|x| x.updated_at}.max] do%>
         <% @logs.each do |item| %>
           <li>
             <i class="fa <%= item.action_icon %>"></i>
