@@ -56,14 +56,29 @@
                     </label>
                   </td>
                   <td class="col-sm-3">
-                    <label class="btn bg-olive btn-flat" style="font-size: 16px" title="「<%= video.updated_at.strftime('%Y-%m-%d %H:%M:%S') %>」">
+                    <label class="btn bg-olive btn-flat" style="font-size: 16px" title="更新时间「<%= video.updated_at.strftime('%Y-%m-%d %H:%M:%S') %>」">
                       <i class="fa fa-calendar-o"></i>
                       <%= distance_of_time_in_words_to_now video.updated_at %>
-                    </label><br><br>
-                    <label class="btn bg-aqua btn-flat" style="font-size: 16px">
+                    </label>
+                    <label class="btn bg-orange btn-flat" style="font-size: 16px;margin-left: 20px" title="用户评论">
+                      <i class="fa fa-comments "></i>
+                      <%= video.comments.count %>
+                    </label>
+                    <br><br>
+                    <label class="btn bg-aqua btn-flat" style="font-size: 16px" title="视频时长">
                       <i class="fa fa-clock-o"></i>
                       <%= video_time video.duration %>
                     </label>
+                    <label class="btn bg-purple btn-flat" style="font-size: 16px" title="浏览次数">
+                      <i class="fa fa-bar-chart-o"></i>
+                      <%= video.view_count %>
+                    </label>
+                    <% if video.video_type == 0 %>
+                      <a href="<%= sync_comment_path(video.id) %>" class="btn btn-success btn-flat" data-confirm="真的要更新视频的优酷评论么">
+                        <i class="fa fa-refresh"></i>
+                        同步评论
+                      </a>
+                    <% end %>
                   </td>
                   <td class="col-sm-1"><br>
                     <a href="<%= edit_admin_column_video_path(video.column_id,video) %>" class="btn bg-navy btn-flat">

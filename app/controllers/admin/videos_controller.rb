@@ -1,6 +1,6 @@
 class Admin::VideosController < Admin::BaseController
 
-  before_action :set_column
+  before_action :set_column, except:[:sync_youku_comment]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :set_param, only: [:create, :update]
 
@@ -34,6 +34,12 @@ class Admin::VideosController < Admin::BaseController
   def destroy
     @video.destroy
     redirect_to channel_path(@column.english)
+  end
+
+  def sync_youku_comment
+    video = Video.find(params[:id])
+    video.update_youku_comment
+    redirect_to :back
   end
 
   private
