@@ -14,7 +14,7 @@
   <%= yield %>
   <%= render :partial=>'shared/footer'%>
   <%= javascript_include_tag 'play'%>
-  <%#= javascript_include_tag 'http://cytroncdn.videojj.com/latest/Iva.js' %>
+  <%= javascript_include_tag 'http://cytroncdn.videojj.com/latest/cytron.core.js' %>
   <%= content_for(:javascript) %>
 </body>
 </html>
