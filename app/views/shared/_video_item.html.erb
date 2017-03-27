@@ -16,7 +16,10 @@
        </a>
       <p class="time">
         <i class="fa fa-clock-o"></i>&nbsp;<%= video_time video.duration %>
-        <span class="date"><i class="fa fa-calendar"></i>&nbsp;<%= video.created_at.strftime('%m-%d %H:%M') %></span>
+        <span class="date">
+        <i class="fa fa-bar-chart"></i>&nbsp;<%= video.view_count %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa fa-comments"></i>&nbsp;<%= video.comments.count %>
+        </span>
       </p>
     </div>
   </div>
