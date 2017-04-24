@@ -1,4 +1,6 @@
 <% content_for :meta do %>
+  <meta name="keywords" content="Develop by Koogle Zhang">
+  <meta name="description" content="视频聚合小站,<%= @columns.map{|x| x.name}.join(',') %>,总有一个视频等着你">
   <meta property="og:title" content="Koogle.cc">
   <meta property="og:type" content="article">
   <meta property="og:url" content="<%= Settings.host %>">
