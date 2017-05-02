@@ -40,72 +40,70 @@
             </tr>
             </thead>
             <tbody>
-            <% cache [:users, @users.first.id, @users.map{|x| x.updated_at}.max] do %>
-                <% @users.each do |user| %>
-                  <tr>
-                    <td>
-                      <img src="<%= display_avatar user %>" width="100px">
-                    </td>
-                    <td>
-                      <span class="<%= role_bg_label user %>" style="font-size: 16px">
-                        <i class="fa fa-drupal"></i>
-                        <%= display_role user %>
-                      </span>
-                      <br><br>
-                      <span class="btn bg-maroon btn-flat" style="font-size: 16px">
-                        <i class="fa fa-user-secret"></i>
-                        <%= display_name user %>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="btn bg-black btn-flat" style="font-size: 16px">
-                        <i class="fa fa-map-marker"></i>
-                        <%= user.location || user.current_sign_in_ip %>
-                      </span>
-                      <br><br>
-                      <span class="btn bg-olive btn-flat" style="font-size: 16px">
-                        <i class="fa fa-envelope"></i>
-                        <%= user.email %>
-                      </span>
-                    </td>
-                    <td style="text-align: center">
-                      <img src="<%= rank_picture(user) %>" style="width:100px;" title="积分：<%= user.sign_in_count %>">
-                    </td>
-                    <td>
-                      <br>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-flat"><i class="fa fa-delicious"></i>&nbsp;用户权限</button>
-                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <span class="caret"></span>
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                          <li>
-                            <a href="<%= set_user_role_path(user.id,1) %>" class="btn bg-navy btn-flat">
-                              <i class="fa fa-drupal"></i>
-                              <span>小盆友</span>
-                            </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="<%= set_user_role_path(user.id,2) %>" class="btn bg-orange btn-flat">
-                              <i class="fa fa-gavel"></i>
-                              <span>鉴黄师</span>
-                            </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="<%= set_user_role_path(user.id,0) %>" class="btn bg-purple btn-flat">
-                              <i class="fa fa-car"></i>
-                              <span>老司机</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                <% end %>
-            <% end %>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <img src="<%= display_avatar user %>" width="100px">
+                  </td>
+                  <td>
+                    <span class="<%= role_bg_label user %>" style="font-size: 16px">
+                      <i class="fa fa-drupal"></i>
+                      <%= display_role user %>
+                    </span>
+                    <br><br>
+                    <span class="btn bg-maroon btn-flat" style="font-size: 16px">
+                      <i class="fa fa-user-secret"></i>
+                      <%= display_name user %>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="btn bg-black btn-flat" style="font-size: 16px">
+                      <i class="fa fa-map-marker"></i>
+                      <%= user.location || user.current_sign_in_ip %>
+                    </span>
+                    <br><br>
+                    <span class="btn bg-olive btn-flat" style="font-size: 16px">
+                      <i class="fa fa-envelope"></i>
+                      <%= user.email %>
+                    </span>
+                  </td>
+                  <td style="text-align: center">
+                    <img src="<%= rank_picture(user) %>" style="width:100px;" title="积分：<%= user.sign_in_count %>">
+                  </td>
+                  <td>
+                    <br>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default btn-flat"><i class="fa fa-delicious"></i>&nbsp;用户权限</button>
+                      <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <a href="<%= set_user_role_path(user.id,1) %>" class="btn bg-navy btn-flat">
+                            <i class="fa fa-drupal"></i>
+                            <span>小盆友</span>
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="<%= set_user_role_path(user.id,2) %>" class="btn bg-orange btn-flat">
+                            <i class="fa fa-gavel"></i>
+                            <span>鉴黄师</span>
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="<%= set_user_role_path(user.id,0) %>" class="btn bg-purple btn-flat">
+                            <i class="fa fa-car"></i>
+                            <span>老司机</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
