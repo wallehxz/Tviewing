@@ -28,6 +28,7 @@ class Video < ActiveRecord::Base
   scope :recent, ->{ order(created_at: :desc) }
   scope :general, ->{ where('column_id != 1') }
   scope :qvod, ->{ where('column_id == 1') }
+  scope :top, ->{ order(recommend: :desc) }
 
   self.per_page = 9
 
@@ -162,6 +163,11 @@ class Video < ActiveRecord::Base
 
   def background
     ['bg-red','bg-yellow','bg-aqua','bg-blue','bg-light-blue','bg-green','bg-navy','bg-teal','bg-olive','bg-lime','bg-orange','bg-fuchsia','bg-purple','bg-maroon','bg-black'][rand(15)]
+  end
+
+  def redu
+    return '置顶' if self.recommend == 1
+    return '普通'
   end
 
 end

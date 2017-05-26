@@ -8,12 +8,12 @@
           <% if column.id == @columns.first.id %>
             <li data-delay="<%= @columns.count %>" data-src="<%= @columns.count %>" data-trans3d="tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45" data-trans2d="tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41">
               <img src="<%= carousel_cover(column.cover) %>" data-src="<%= carousel_cover(column.cover) %>" data-thumb="<%= carousel_avatar_cover(column.cover) %>"/>
-              <a data-type="link" href="#" target="_blank"></a>
+              <a data-type="link" href="<%= show_path(column.recommend.url_code) %>" target="_blank"></a>
             </li>
           <% else %>
             <li data-delay="<%= @columns.count %>" data-src="<%= @columns.count %>" data-trans3d="tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45" data-trans2d="tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41">
               <img src="<%= image_path('slider/blank.png') %>" data-src="<%= carousel_cover(column.cover) %>" data-thumb="<%= carousel_avatar_cover(column.cover) %>"/>
-              <a data-type="link" href="#" target="_blank"></a>
+              <a data-type="link" href="<%= show_path(column.recommend.url_code) %>" target="_blank"></a>
             </li>
           <% end %>
         <% end %>

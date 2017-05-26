@@ -13,12 +13,12 @@
         </div>
       </div>
       <div class="form-group has-success">
-        <label>视频推荐</label>
+        <label>是否置顶</label>
         <div class="input-group">
           <div class="input-group-addon">
             <i class="glyphicon glyphicon-fire"></i>
           </div>
-          <%= f.select(:recommend, [['默认否',0],['选择是',1]], {},{:class => 'form-control'}) %>
+          <%= f.select(:recommend, [['普通',0],['置顶',1]], {},{:class => 'form-control'}) %>
         </div>
       </div>
       <div class="form-group has-success">

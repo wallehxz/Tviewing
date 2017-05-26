@@ -59,9 +59,13 @@
                       <i class="fa fa-calendar-o"></i>
                       <%= distance_of_time_in_words_to_now video.updated_at %>
                     </label>
-                    <label class="btn bg-orange btn-flat" style="font-size: 16px;margin-left: 20px" title="用户评论">
+                    <label class="btn bg-orange btn-flat" style="font-size: 16px;" title="用户评论">
                       <i class="fa fa-comments "></i>
                       <%= video.comments.count %>
+                    </label>
+                    <label class="btn bg-info btn-flat" style="font-size: 16px">
+                      <i class="fa fa-hand-peace-o"></i>
+                      <%= video.redu %>
                     </label>
                     <br><br>
                     <label class="btn bg-aqua btn-flat" style="font-size: 16px" title="视频时长">

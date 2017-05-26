@@ -12,6 +12,7 @@ class Admin::VideosController < Admin::BaseController
   end
 
   def create
+    only_recommend
     @param[:cover] = Video.file_or_url_to_cover(@param[:photo_file],@param[:cover])
     @param[:duration] = Video.youku_video_duration(@param[:video_url]) if @param[:video_type] == '0'
     @video = Video.new(video_params)
@@ -23,6 +24,7 @@ class Admin::VideosController < Admin::BaseController
   end
 
   def update
+    only_recommend
     @param[:cover] = Video.file_or_url_to_cover(@param[:photo_file],@param[:cover])
     if @video.update(video_params)
       redirect_to channel_path(@column.english)
@@ -57,5 +59,13 @@ class Admin::VideosController < Admin::BaseController
 
     def set_param
       @param = params[:video]
+    end
+
+    def only_recommend
+      if params[:video][:recommend].to_i == 1
+        Video.where(column_id:params[:video][:column_id]).where(recommend:1).each do |video|
+          video.update_attributes(recommend:0)
+        end
+      end
     end
 end
