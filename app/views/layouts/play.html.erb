@@ -14,7 +14,11 @@
   <%= yield %>
   <%= render :partial=>'shared/footer'%>
   <%= javascript_include_tag 'play'%>
-  <%= javascript_include_tag 'http://cytroncdn.videojj.com/latest/cytron.core.js' %>
+  <% if @video.video_type == 0 %>
+    <%= javascript_include_tag 'http://player.youku.com/jsapi' %>
+  <% else %>
+    <%= javascript_include_tag 'http://cytroncdn.videojj.com/latest/cytron.core.js' %>
+  <% end %>
   <%= content_for(:javascript) %>
 </body>
 </html>

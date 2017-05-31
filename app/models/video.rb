@@ -89,6 +89,10 @@ class Video < ActiveRecord::Base
     return code_to_youku_info(youku_url_to_code(video_url))['duration']
   end
 
+  def youku_vid
+    Video.youku_url_to_code(self.video_url)
+  end
+
   #视频头图判断更新
   def self.file_or_url_to_cover(file,url)
     return Cloud.cache_to_yun(file) if file.present?
