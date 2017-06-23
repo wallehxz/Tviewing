@@ -9,7 +9,7 @@
         <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
           <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8"></path>
         </svg>
-        <input type="text" id="email" name="user[email]" class="login__input name" autofocus="true" placeholder="<%= model_errors(resource,'email') || 'Email' %>">
+        <input type="text" id="email" name="user[email]" class="login__input name" autofocus="true" placeholder="<%= model_errors(resource,'email') || '登录邮箱' %>">
       </div>
       <button id="submit" type="submit" class="login__submit">发送确认邮件</button>
     <% end %>

@@ -33,6 +33,14 @@ class  Admin::DashboardController < Admin::BaseController
     redirect_to admin_users_path
   end
 
+  def reset_password
+    user = User.find(params[:user_id])
+    password = '12345678'
+    user.reset_password!(password,password)
+    flash[:notice] ="『#{user.display_name}』密码重置为#{password}"
+    redirect_to admin_users_path
+  end
+
   def view_logs
     unless params[:query].present?
       @logs = UserActionLog.latest.paginate(page:params[:page])

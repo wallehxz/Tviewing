@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   match '/admin/files/:id', to:'admin/clouds#destroy',via: :get, as: :delete_file
   match '/admin/videos/:id/export', to:'admin/columns#export_videos',via: :get, as: :export_videos
   match '/admin/user/:user_id/role/:role_id', to:'admin/dashboard#role_control',via: :get, as: :set_user_role
+  match '/admin/user/:user_id/reset_password', to:'admin/dashboard#reset_password',via: :get, as: :reset_password
   match '/admin/videos/:id/sync_comment', to:'admin/videos#sync_youku_comment',via: :get, as: :sync_comment
 
   devise_for :users

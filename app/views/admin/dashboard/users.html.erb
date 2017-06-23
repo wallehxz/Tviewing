@@ -69,6 +69,8 @@
                   </td>
                   <td style="text-align: center">
                     <img src="<%= rank_picture(user) %>" style="width:100px;" title="积分：<%= user.sign_in_count %>">
+                    <br>
+                    <%= user.updated_at.to_s(:long) %>
                   </td>
                   <td>
                     <br>
@@ -100,7 +102,11 @@
                           </a>
                         </li>
                       </ul>
-                    </div>
+                    </div><br><br>
+                    <a href="<%= reset_password_path(user) %>" class="btn bg-blue btn-flat" data-confirm="重置密码后之前的密码将失效?">
+                      <i class="fa fa-refresh"></i>
+                      重置密码
+                    </a>
                   </td>
                 </tr>
               <% end %>
