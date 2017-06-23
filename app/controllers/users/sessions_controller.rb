@@ -27,6 +27,7 @@ class Users::SessionsController < Devise::SessionsController
       render :new
     else
       sign_in(user)
+      user.set_location
       UserActionLog.generate(current_user,5,env['REQUEST_PATH'],current_user.current_sign_in_ip)
       flash[:notice] = (t 'devise.sessions.signed_in')
       redirect_to root_path

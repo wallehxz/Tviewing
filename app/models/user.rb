@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     self.update_attributes(role:0) if self.id == 1
   end
 
+  def set_location
+    self.update_attributes(location: User.cx_location(self.current_sign_in_ip))
+  end
+
   def set_nick_name
     self.nick_name = Comment::Name[rand(77)]
   end
