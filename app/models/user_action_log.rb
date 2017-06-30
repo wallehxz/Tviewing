@@ -15,7 +15,7 @@ class UserActionLog < ActiveRecord::Base
     log.action = action
     log.result = result
     log.local_ip = ip
-    log.location = User.cx_location(ip)
+    log.location = user.present?? user.location : User.cx_location(ip)
     log.save
   end
 
