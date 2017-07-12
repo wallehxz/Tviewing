@@ -66,16 +66,50 @@ input, button {
   background-size: cover;
   overflow: auto;
 }
+/*Mac PC*/
+@media (min-width: 768px){
+  .demo {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-left: -15rem;
+    margin-top: -26.5rem;
+    width: 30rem;
+    height: 53rem;
+    overflow: hidden;
+  }
+}
 
-.demo {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  margin-left: -15rem;
-  margin-top: -26.5rem;
-  width: 30rem;
-  height: 53rem;
-  overflow: hidden;
+/*iphone 6plus*/
+@media (max-width: 414px) {
+  .demo {
+    position: absolute;
+    top: 10%;
+    padding-left: 15px;
+    width: 395px;
+    height: 600px;
+    overflow: hidden;
+  }
+  .login__icon {
+    display: none;
+  }
+  .login__input {
+    margin-left: -120px !important;
+  }
+}
+
+/*iphone 6*/
+@media (max-width: 375px) {
+  .demo {
+    width: 360px;
+  }
+}
+
+/*iphone 5*/
+@media (max-width: 320px) {
+  .demo {
+    width: 305px;
+  }
 }
 
 .login {
@@ -89,33 +123,6 @@ input, button {
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
   -webkit-transform: scale(1);
   transform: scale(1);
-}
-/*iphone 6plus*/
-@media (max-width: 414px) {
-  .login {
-    width: 384px;
-    height: 578px;
-    top:6%;
-    margin:auto auto;
-  }
-  .login__icon {
-    display: none;
-  }
-}
-
-/*iphone 6*/
-@media (max-width: 375px) {
-  .login {
-    width: 345px;
-  }
-}
-
-/*iphone 5*/
-@media (max-width: 320px) {
-  .login {
-    width: 300px;
-    top:8%;
-  }
 }
 
 .login.inactive {
