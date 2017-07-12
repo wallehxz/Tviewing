@@ -11,7 +11,6 @@ class Users::ProfilesController < ApplicationController
   end
 
   def update_avatar
-    binding.pry
     if params[:avatar]
       file = Base64.decode64(params[:avatar]['data:image/png;base64,'.length .. -1])
       current_user.avatar = Cloud.base64_file_to_yun(file)
