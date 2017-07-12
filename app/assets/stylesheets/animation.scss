@@ -86,7 +86,8 @@ input, button {
     position: absolute;
     top: 10%;
     padding-left: 15px;
-    width: 395px;
+    padding-right: 15px;
+    width: 100%;
     height: 600px;
     overflow: hidden;
   }
@@ -94,21 +95,8 @@ input, button {
     display: none;
   }
   .login__input {
-    margin-left: -120px !important;
-  }
-}
-
-/*iphone 6*/
-@media (max-width: 375px) {
-  .demo {
-    width: 360px;
-  }
-}
-
-/*iphone 5*/
-@media (max-width: 320px) {
-  .demo {
-    width: 305px;
+    /*margin-left: -80px !important;*/
+    width: 100% !important;
   }
 }
 
