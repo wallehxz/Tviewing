@@ -78,34 +78,43 @@ input, button {
   overflow: hidden;
 }
 
-@media ( min-width: 374px) {
+.login {
+  position: relative;
+  height: 90%;
+  background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+  -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+/*iphone 6plus*/
+@media (max-width: 414px) {
   .login {
-    position: relative;
-    height: 90%;
-    background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
-    background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
-    -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    width: 384px;
+    height: 578px;
+    top:6%;
+    margin:auto auto;
+  }
+  .login__icon {
+    display: none;
   }
 }
 
-//iphone5
-@media ( max-width: 321px) {
+/*iphone 6*/
+@media (max-width: 375px) {
   .login {
-    position: relative;
-    height: 85%;
-    /*background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);*/
-    /*background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);*/
-    -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    width: 345px;
+  }
+}
+
+/*iphone 5*/
+@media (max-width: 320px) {
+  .login {
+    width: 300px;
+    top:8%;
   }
 }
 
@@ -137,6 +146,7 @@ input, button {
   background: #fff;
   box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
 }
+
 .login__form {
   position: absolute;
   top: 30%;
@@ -152,7 +162,7 @@ input, button {
 .login__row {
   height: 5rem;
   padding-top: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
 }
 .login__icon {
   margin-bottom: -0.4rem;
@@ -176,7 +186,7 @@ input, button {
   width: 22rem;
   height: 100%;
   padding-left: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   background: transparent;
   color: #FDFCFD;
 }

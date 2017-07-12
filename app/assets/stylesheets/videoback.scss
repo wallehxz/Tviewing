@@ -7,3 +7,20 @@ video#bgvid {
   background: asset_url('sources/Yasuo.jpg') no-repeat;
   background-size: cover;
 }
+
+@media (max-width: 768px){
+  #bgvid{
+    display: none;
+  }
+  #particles-js{
+    display: block;
+  }
+}
+@media (min-width: 768px){
+  #bgvid{
+    display: block;
+  }
+  #particles-js{
+    display: none;
+  }
+}
