@@ -54,5 +54,6 @@ Rails.application.routes.draw do
   match '/user/info/update', to:'users/profiles#update_info',via: :post, as: :update_info
   match '/user/avatar', to:'users/profiles#avatar',via: :get, as: :user_avatar
   match '/user/avatar/update', to:'users/profiles#update_avatar',via: :post, as: :update_avatar
+  get    '/wechat/(:function)',to:'wechat#station'
 
 end
