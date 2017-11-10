@@ -2,23 +2,27 @@ class WechatController < ApplicationController
 
   def station
     if params[:function] == 'init'
-      init
+      init_quote
     elsif params[:function] == 'quote'
-      quote
+      block_quote
     elsif params[:function] == 'balance'
       balance
+    elsif params[:function] == 'buy'
+      buy_block
+    elsif params[:function] == 'sell'
+      sell_block
     else
       render json:{code:200}
     end
   end
 
-  def init
+  def init_quote
     url = 'http://btc.loogle.org/api/stocks/init'
     res = Faraday.get(url)
     render json:JSON.parse(res.body)
   end
 
-  def quote
+  def block_quote
     url = 'http://btc.loogle.org/api/stocks/quote'
     res = Faraday.get do |req|
       req.url url
@@ -34,4 +38,21 @@ class WechatController < ApplicationController
     render json:JSON.parse(res.body)
   end
 
+  def buy_block
+    url = 'http://btc.loogle.org/api/stocks/buy'
+    res = Faraday.get do |req|
+      req.url url
+      req.params[:block] = params[:block]
+    end
+    render json:JSON.parse(res.body)
+  end
+
+  def sell_block
+    url = 'http://btc.loogle.org/api/stocks/sell'
+    res = Faraday.get do |req|
+      req.url url
+      req.params[:block] = params[:block]
+    end
+    render json:JSON.parse(res.body)
+  end
 end
