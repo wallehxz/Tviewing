@@ -7,9 +7,9 @@ class WechatController < ApplicationController
       block_quote
     elsif params[:function] == 'balance'
       balance
-    elsif params[:function] == 'buy'
+    elsif params[:function] == 'buy1'
       buy_block
-    elsif params[:function] == 'sell'
+    elsif params[:function] == 'sell1'
       sell_block
     else
       render json:{code:200}
