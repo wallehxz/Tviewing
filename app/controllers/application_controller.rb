@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
+  before_action :redirect_to_origin
+
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       respond_to do |format|
@@ -29,5 +31,13 @@ class ApplicationController < ActionController::Base
   #     end
   #   end
   # end
+
+  def redirect_to_origin
+    if Rails.env.production?
+      unless request.host.include?('koogle.cc')
+        redirect_to "http://#{request.host}"
+      end
+    end
+  end
 
 end
