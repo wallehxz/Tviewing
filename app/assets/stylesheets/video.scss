@@ -352,6 +352,7 @@ videodetail
 }
 
 .video-item .poster{
+  min-height: 160px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: rgba(0,0,0,0.5);
