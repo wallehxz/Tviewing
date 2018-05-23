@@ -15,7 +15,8 @@ body {
 }
 
 body {
-  background: asset_url('swirl.png') repeat fixed;
+  background-image: asset_url('sources/bk.png');
+  background-attachment: fixed;
 }
 ol, ul {
  list-style: none;

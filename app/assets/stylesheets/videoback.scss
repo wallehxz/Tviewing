@@ -4,7 +4,7 @@ video#bgvid {
   width: auto;
   height: auto;
   z-index: -100;
-  background: asset_url('sources/Yasuo.jpg') no-repeat;
+  background: asset_url('sources/meteor.webp') no-repeat;
   background-size: cover;
 }
 
@@ -23,4 +23,12 @@ video#bgvid {
   #particles-js{
     display: none;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+    -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
 }
