@@ -1,7 +1,9 @@
 <%= content_for(:title, '找回密码 | Koogle') %>
 <div class="login">
-  <div style="text-align: center;">
-    <img src="<%= image_path('toutu/send_email.png')%>" style="height: 200px;">
+  <div style="text-align: center;padding-top: 50px">
+    <a href="/">
+      <img src="<%= image_path('sources/xxoo.png')%>" style="height: 152px">
+    </a>
   </div>
   <div class="login__form">
     <%= form_for(resource, as: resource_name, url: forgot_password_path, html: { method: :post }) do |f| %>

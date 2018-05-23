@@ -1,7 +1,9 @@
 <%= content_for(:title, '账户注册 | Koogle') %>
 <div class="login">
-  <div style="text-align: center;">
-    <img src="<%= image_path('toutu/add_user.png')%>" style="height: 180px;">
+  <div style="text-align: center;padding-top: 20px">
+    <a href="/">
+      <img src="<%= image_path('sources/xxoo.png')%>" style="height: 152px">
+    </a>
   </div>
   <div class="login__form sign_up">
     <%= form_for(resource, as: resource_name, url: sign_up_path) do |f| %>
