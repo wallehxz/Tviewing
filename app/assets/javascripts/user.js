@@ -10,7 +10,6 @@
 $(document).on('page:fetch',function() { NProgress.start(); })
 $(document).on('page:change',function() { NProgress.done(); })
 $(document).on('page:restore',function() { NProgress.remove(); })
-document.getElementById("bgvid").setAttribute('width', window.screen.width);
 
 $('#submit').click(function(){
   $(this).addClass('processing');

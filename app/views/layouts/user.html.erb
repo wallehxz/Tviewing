@@ -24,6 +24,9 @@
     ga('send', 'pageview');
   </script>
   <script type="text/javascript">
+    $(function() {
+      document.getElementById("bgvid").setAttribute('width', window.screen.width);
+    });
     document.getElementById("bgvid").addEventListener('ended', function () {
       this.setAttribute('src',"<%= audio_path('sources/meteor1.mp4')%>");
       this.setAttribute('loop',true);
