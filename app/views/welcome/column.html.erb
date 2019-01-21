@@ -35,21 +35,23 @@
 </section>
 <%= content_for :javascript do %>
 <script>
+  var next_page = 2;
+  var column_id = <%= @column.id %>;
   function videos_more(page){
     var next_page = parseInt(page) + 1;
     $('#more').css('display','none');
     $('#load_bar').css('display','block');
     $('#load_more').attr('onclick',"videos_more("+ next_page +")");
     load_progress(5);
-    $.get("<%= column_more_path %>",{page: page,column:<%= @column.id %>}, function(data){
+    $.get("<%= column_more_path %>",{page: next_page, column: column_id}, function(data){
+      next_page += 1;
       setTimeout(function(){
         $('#more').css('display','block');
         $('#load_bar').css('display','none');
         $('.progress-bar').css('width','0%');
-        if(data != ''){
-          $('#vidoes').append(data);
-        }else{
-          $('.load_more').html('<h4>感谢您对我们视频的支持！(+ _ +) </h4>').removeAttr('onclick');
+        $('#vidoes').append(data);
+        if(data == ''){
+          $('.load_more').html('<h4>感谢您对视频的喜爱与支持！(+ _ +) </h4>').removeAttr('onclick');
         }
       },888);
     })
