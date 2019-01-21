@@ -37,11 +37,10 @@
 <script>
   var next_page = 2;
   function videos_more(){
-    var next_page = parseInt(page) + 1;
     $('#more').css('display','none');
     $('#load_bar').css('display','block');
     load_progress(5);
-    $.get("<%= video_more_path %>", { page: page }, function(data) {
+    $.get("<%= video_more_path %>", { page: next_page }, function(data) {
       next_page += 1;
       setTimeout(function(){
         $('#more').css('display','block');
