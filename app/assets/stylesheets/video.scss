@@ -14,8 +14,8 @@ body {
 }
 
 body {
-  background-image: asset_url('sources/bk.png');
-  background-attachment: fixed;
+/*  background-image: asset_url('sources/bk.png');
+  background-attachment: fixed;*/
 }
 ol, ul {
  list-style: none;
@@ -433,6 +433,7 @@ videodetail
   position: relative;
   margin-top: -10px;
   margin-bottom: -10px;
+  padding-bottom: 5px;
   .title {
     font-size: 30px;
   }
@@ -588,12 +589,12 @@ video comments
 
 .com-details {
   background: #fff;
-  padding: 10px 10px 1px 10px;
+  padding: 10px 10px;
   margin-bottom: 15px;
   box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.18);
   position: relative;
   color: #000;
-  min-width: 50%;
+  min-width: 100px !important;
   border-radius: 3px;
   p {
     font-size: 20px;
@@ -611,7 +612,7 @@ video comments
     border-color: transparent;
     border-left: 0;
     bottom: -40px;
-    left: 56px;
+    left: 50px;
     border-top-color: #fff;
     border-width: 20px;
   }

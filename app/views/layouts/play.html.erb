@@ -11,6 +11,7 @@
 </head>
 <body>
   <%= render :partial=>'shared/header'%>
+  <video preload loop autoplay="autoplay" id="bgvid" src="<%= audio_path('sources/meteor1.mp4')%>"></video>
   <%= yield %>
   <%= render :partial=>'shared/footer'%>
   <%= javascript_include_tag 'play'%>
