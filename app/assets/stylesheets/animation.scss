@@ -1,6 +1,6 @@
 @font-face {
  font-family: 'YueYuan';
- src: font_url('lte/fonts/zzgf/yueyuan.ttf') format('truetype');
+ src: font_url('lte/fonts/zzgf/ZQKZYT.otf');
  font-weight: normal;
  font-style: normal;
 }
@@ -184,7 +184,7 @@ input, button {
   width: 22rem;
   height: 100%;
   padding-left: 1.5rem;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   background: transparent;
   color: #FDFCFD;
 }
@@ -196,7 +196,7 @@ input, button {
   margin: 2.2rem 0 2.2rem;
   color: rgba(255, 255, 255, 1);
   background: #FF3366;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-radius: 3rem;
   cursor: pointer;
   overflow: hidden;

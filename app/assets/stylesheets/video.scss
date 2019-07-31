@@ -1,6 +1,6 @@
 @font-face {
  font-family: 'YueYuan';
- src: asset_url('lte/fonts/zzgf/yueyuan.ttf') format('truetype');
+ src: asset_url('lte/fonts/zzgf/ZQKZYT.otf');
  font-weight: normal;
  font-style: normal;
 }
@@ -274,15 +274,17 @@ i.icon_pull {
 .search {
   transition: width 1s;
   line-height: 45px;
+  text-align: center;
   font-size: 25px;
   padding-left: 30px;
   margin-right: 10px;
   border:0;
-  width: 250px;
+  width: 360px;
   color:white;
   outline:none;
   background: transparent;
   z-index: 100;
+  border-bottom:#ffffff 2px solid;
 }
 
 .serach_form:hover > .search{
@@ -341,7 +343,7 @@ videodetail
   filter: blur(0px);
 
   .icon {
-    z-index: 1;
+    z-index: 10;
   }
   /**** 图片伸缩效果 ****/
   img{
@@ -356,18 +358,18 @@ videodetail
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: rgba(0,0,0,0.5);
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -ms-filter: blur(1px);
-  -o-filter: blur(1px);
-  filter: blur(1px);
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -ms-filter: blur(2px);
+  -o-filter: blur(2px);
+  filter: blur(2px);
   overflow: hidden;
 
   .icon {
     position: absolute;
-    top:20%;
+    top:25%;
     left: 47.777%;
-    z-index: -1;
+    z-index: -10;
     font-size: 75px;
 
     a {
