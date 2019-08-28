@@ -21,6 +21,7 @@ gem 'cancancan', '1.15.0' # User authorization
 gem 'devise','3.4.0' # User authentication
 gem 'redis-rails','5.0.1' # cache use redis
 gem 'redis-rack-cache', '2.0.0'
+gem 'ipip', '0.1.3', git: 'https://github.com/kooogle/ipip.git' # find ipip from local data
 # gem 'rack-cache', '1.6.1', require:'rack/cache'# enable HTTP caching for application
 
 group :production do

@@ -72,6 +72,14 @@ class User < ActiveRecord::Base
 
   # User.cx_location('')
   def self.cx_location(ip)
+    return locale_position(ip) || remote_position(ip)
+  end
+
+  def self.locale_position(ip)
+    IPIPX.find(ip).split("\t").uniq.join()
+  end
+
+  def self.remote_position(ip)
     url = 'http://api.ip138.com/query/'
     app_code = 'f910da9ce9ac0b40625c43f372363fac'
     res = Faraday.get do |req|

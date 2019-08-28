@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/kooogle/ipip.git
+  revision: 5598120f30df984fbde66cf8a24f1642503cb48d
+  specs:
+    ipip (0.1.3)
+
 GEM
   remote: https://gems.ruby-china.com/
   specs:
@@ -352,6 +358,7 @@ DEPENDENCIES
   fume-settable (= 0.0.3)
   guard-livereload (= 2.5.2)
   guard-rspec (= 4.6.4)
+  ipip (= 0.1.3)!
   jbuilder (= 2.6.0)
   jquery-rails (= 4.2.0)
   json_spec (= 1.1.4)
