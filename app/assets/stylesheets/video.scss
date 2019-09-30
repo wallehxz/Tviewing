@@ -275,7 +275,7 @@ i.icon_pull {
   transition: width 1s;
   line-height: 45px;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 30px;
   margin-right: 10px;
   border:0;
@@ -289,8 +289,9 @@ i.icon_pull {
 
 .serach_form:hover > .search{
   transition: width 1s;
-  width: 500px;
+  width: 720px;
   margin-right: 0px;
+  background-color: rgba(12, 184, 182, 0.91);
   border-bottom:#ffffff 2px solid;
 }
 
