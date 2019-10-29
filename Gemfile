@@ -18,7 +18,7 @@ gem 'qiniu', '6.8.0' #http://developer.qiniu.com/code/v6/sdk/ruby.html file uplo
 gem 'puma', '3.6.0' #Server
 gem 'bcrypt', '3.1.10'# Use ActiveModel has_secure_password
 gem 'cancancan', '1.15.0' # User authorization
-gem 'devise','3.4.0' # User authentication
+gem 'devise','4.7.1' # User authentication
 gem 'redis-rails','5.0.1' # cache use redis
 gem 'redis-rack-cache', '2.0.0'
 gem 'ipip', '0.1.3', git: 'https://github.com/kooogle/ipip.git' # find ipip from local data
