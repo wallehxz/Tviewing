@@ -1,0 +1,36 @@
+<!-- 轮播图片大小推荐 1200x525 -->
+<div class="cute-container c-demoslider">
+  <div id="cuteslider_3_wrapper" class="cs-circleslight">
+    <div id="cuteslider_3" class="cute-slider" data-width="1200" data-height="525" data-overpause="true">
+      <ul data-type="slides">
+      <% cache [@columns.map{|c| c.updated_at}.max]  do %>
+        <% @columns.each do |column|%>
+          <% if column.id == @columns.first.id %>
+            <li data-delay="<%= @columns.count %>" data-src="<%= @columns.count %>" data-trans3d="tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45" data-trans2d="tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41">
+              <img src="<%= carousel_cover(column.cover) %>" data-src="<%= carousel_cover(column.cover) %>" data-thumb="<%= carousel_avatar_cover(column.cover) %>"/>
+              <a data-type="link" href="<%#= show_path(column.recommend.url_code) %>" target="_blank"></a>
+            </li>
+          <% else %>
+            <li data-delay="<%= @columns.count %>" data-src="<%= @columns.count %>" data-trans3d="tr6,tr17,tr22,tr23,tr29,tr27,tr32,tr34,tr35,tr53,tr54,tr62,tr63,tr4,tr13,tr45" data-trans2d="tr3,tr8,tr12,tr19,tr22,tr25,tr27,tr29,tr31,tr34,tr35,tr38,tr39,tr41">
+              <img src="<%= image_path('slider/blank.png') %>" data-src="<%= carousel_cover(column.cover) %>" data-thumb="<%= carousel_avatar_cover(column.cover) %>"/>
+              <a data-type="link" href="<%#= show_path(column.recommend.url_code) %>" target="_blank"></a>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+      </ul>
+      <ul data-type="controls">
+        <li data-type="captions"></li>
+        <li data-type="link"></li>
+        <li data-type="video"></li>
+        <li data-type="slideinfo"></li>
+        <li data-type="circletimer"></li>
+        <li data-type="previous"></li>
+        <li data-type="next"> </li>
+        <li data-type="bartimer"></li>
+        <li data-type="slidecontrol" data-thumb="true" data-thumbalign="up"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="cute-shadow"><img src="<%= image_path('slider/shadow.png') %>" alt="shadow" /></div>
+</div>

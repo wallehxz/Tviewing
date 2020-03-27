@@ -1,0 +1,36 @@
+video#bgvid {
+  position: fixed;
+  /*width: 100%;*/
+  top:0;
+  left: 0;
+/*  width: auto;
+  height: auto;*/
+  z-index: -100;
+  /*background: asset_url('sources/meteor.webp') no-repeat;*/
+  /*background-size: cover;*/
+}
+
+@media (max-width: 768px){
+  #bgvid{
+    display: none;
+  }
+  #particles-js{
+    display: block;
+  }
+}
+@media (min-width: 768px){
+  #bgvid{
+    display: block;
+  }
+  #particles-js{
+    display: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+    -webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
+}

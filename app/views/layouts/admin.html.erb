@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : '用户中心 | 在沉默中爆发' %></title>
+  <meta charset="utf-8">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <%= stylesheet_link_tag 'lte/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'logo.png', :rel => 'shortcut icon' %>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <header class="main-header">
+    <%= render :partial=>'layouts/lte/header' %>
+  </header>
+  <aside class="main-sidebar">
+    <%= render :partial=>'layouts/lte/left_menu' %>
+  </aside>
+  <div class="content-wrapper" style="min-height: 1000px">
+    <%= render :partial=>'layouts/lte/flash_msg' %>
+    <%= yield %>
+  </div>
+  <%= render :partial=>'layouts/lte/footer' %>
+  <aside class="control-sidebar control-sidebar-dark">
+    <%= render :partial=>'layouts/lte/right_menu' %>
+  </aside>
+  <div class="control-sidebar-bg"></div>
+</div>
+<%= javascript_include_tag 'lte/application', 'data-turbolinks-track' => true %>
+</body>
+</html>

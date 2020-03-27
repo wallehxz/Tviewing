@@ -1,0 +1,73 @@
+<%= content_for(:title,  '视频栏目列表 | Koogle') %>
+<section class="content-header">
+  <h1>
+    视频栏目 <small>栏目信息预览</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active"><i class="fa fa-info-circle"></i> 栏目信息</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header">
+      <a href="<%= new_admin_column_path %>" class="btn bg-primary btn-flat"><i class="ion-plus"></i> 添加栏目</a>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+            <thead>
+            <tr>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">封面</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">属性</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">描述</th>
+              <th tabindex="0" aria-controls="example1" style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @columns.each do |channel| %>
+              <tr>
+                <td class="col-sm-3">
+                  <img src="<%= list_cover channel.cover %>" class="col-sm-12">
+                </td>
+                <td class="col-sm-2"><br>
+                  <label class="btn bg-olive btn-flat" style="font-size: 16px">
+                    <i class="glyphicon glyphicon-link"></i>
+                    <%= channel.name %>
+                  </label><br><br>
+                  <label class="btn bg-primary btn-flat" style="font-size: 16px" title="更新于「<%= channel.updated_at.strftime('%Y-%m-%d %H:%M:%S') %>」">
+                    <i class="glyphicon glyphicon-time"></i>
+                    <%= distance_of_time_in_words_to_now channel.updated_at %>
+                  </label>
+                </td>
+                <td class="col-sm-5"><%= channel.summary.html_safe %></td>
+                <td class="col-sm-1"><br>
+                  <a href="<%= edit_admin_column_path(channel) %>" class="btn bg-orange btn-flat">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    编辑
+                  </a>
+                  <br><br>
+                  <a href="<%= admin_column_path(channel) %>" class="btn bg-red btn-flat" data-method="delete" data-confirm="确定删除「<%= channel.name %>」?">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    删除
+                  </a>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="dataTables_info" id="example1_info" role="status" aria-live="polite"><h5>总计：「<%= @columns.count %>」栏目</h5></div>
+        </div>
+        <div class="col-sm-7">
+          <div class="dataTables_paginate paging_simple_numbers">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

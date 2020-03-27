@@ -1,0 +1,22 @@
+<section>
+  <div class='preface' style="background: url(<%= column_avatar @column.avatar %>) no-repeat fixed;">
+    <div class="column_mask">
+      <div class="container">
+        <div class="row">
+          <div class="banner-info">
+            <div class="banner-logo text-center">
+            </div>
+            <div class="banner-text text-center">
+              <h1 class="white"><%= @column.name %></h1>
+              <p><%= strip_tags @column.summary %></p>
+              <a href="<%= show_path @column.recommend.url_code %>" class="btn btn-appoint">Take me to see</a>
+            </div>
+            <div class="overlay-detail text-center">
+              <a id='banner_scroll' href="javascript:void(0)"><i class="fa fa-angle-down"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

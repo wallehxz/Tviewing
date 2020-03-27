@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : '在沉默中爆发 | Koogle' %></title>
+  <%= content_for?(:meta)? yield(:meta) :'' %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <%= stylesheet_link_tag 'play', media: 'all'%>
+  <%= favicon_link_tag 'logo.png', :rel => 'shortcut icon' %>
+</head>
+<body>
+  <%= render :partial=>'shared/header'%>
+  <video preload loop autoplay="autoplay" id="bgvid" src="<%= audio_path('sources/meteor1.mp4')%>"></video>
+  <%= yield %>
+  <%= render :partial=>'shared/footer'%>
+  <%= javascript_include_tag 'play'%>
+  <% if @video.video_type == 0 %> <!-- 如果视频源是优酷 -->
+    <%= javascript_include_tag 'https://player.youku.com/jsapi' %>
+  <% elsif @video.video_type == 3 %> <!-- 如果视频源是 MP4 链接文件 -->
+    <%= javascript_include_tag 'videojs' %>
+    <%= stylesheet_link_tag 'videojs' %>
+  <% end %>
+  <%= render :partial=>'shared/growingio'%>
+  <%= render :partial=>'shared/googleanalysis'%>
+  <%= content_for(:javascript) %>
+</body>
+</html>

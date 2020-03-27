@@ -1,0 +1,26 @@
+<div class="col-md-4 col-sm-6">
+  <div class="video-item">
+    <div class="poster">
+      <div class="icon">
+        <a href="<%= show_path(video.url_code) %>">
+          <i class="ion ion-play"></i>
+        </a>
+      </div>
+      <img height="180" src="<%= video_cover video.cover %>">
+    </div>
+    <div class="info">
+      <a href="<%= show_path(video.url_code) %>">
+        <p class="title">
+          <i class="<%= video.column.icon %>">&nbsp;</i><%= video.title %>
+        </p>
+       </a>
+      <p class="time">
+        <i class="fa fa-clock-o"></i>&nbsp;<%= video_time video.duration %>
+        <span class="date">
+        <i class="fa fa-bar-chart"></i>&nbsp;<%= video.view_count %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa fa-comments"></i>&nbsp;<%= video.comments.count %>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

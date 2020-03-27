@@ -1,0 +1,62 @@
+<%= content_for(:title, '上传头像 | Koogle') %>
+<div class="login">
+  <div class="imageBox">
+    <div class="thumbBox"></div>
+  </div>
+  <form method="post" action="<%= update_avatar_path %>">
+    <div class="imageAction">
+      <div class="imageUpload">
+        <a class="upload-img">
+          <label>选择头像</label>
+        </a>
+        <input type="file" class="file_input" name="file" id="upload-file" />
+        <input type="hidden" id="data" name="avatar"/>
+      </div>
+      <div class="imageCrop">
+        <a id="btnZoomOut" class="Btnsty_out"><i class="fa fa-minus"></i></a>
+        <a id="btnZoomIn" class="Btnsty_in"><i class="fa fa-plus"></i></a>
+        <a id="btnCrop"  class="Btnsty_yes"><i class="fa fa-check"></i></a>
+      </div>
+    </div>
+    <div class="imagePre">
+      <div class="pre_right">
+        <img src="<%= display_avatar current_user %>" class="pre_square">
+      </div>
+      <div class="pre_left">
+        <img src="<%= display_avatar current_user %>" class="pre_round">
+      </div>
+    </div>
+    <div class="cropUpload">
+      <button id="submit" type="submit" class="login__submit" disabled="disabled">上传头像</button>
+    </div>
+  </form>
+<div>
+<%= content_for :javascript do %>
+<script type="text/javascript">
+  $(function(){
+    var options = {thumbBox: '.thumbBox'}
+    var cropper = $('.imageBox').cropbox(options);
+    $('#upload-file').on('change', function(){
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        options.imgSrc = e.target.result;
+        cropper = $('.imageBox').cropbox(options);
+      }
+      reader.readAsDataURL(this.files[0]);
+    })
+    $('#btnZoomIn').on('click', function(){
+      cropper.zoomIn();
+    })
+    $('#btnZoomOut').on('click', function(){
+      cropper.zoomOut();
+    })
+    $('#btnCrop').on('click', function(){
+      var img = cropper.getDataURL();
+      $('.pre_round').attr('src',img);
+      $('.pre_square').attr('src',img);
+      $('#data').val(img);
+      $('.login__submit').removeAttr('disabled');
+    })
+  });
+</script>
+<% end -%>

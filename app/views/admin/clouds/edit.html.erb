@@ -1,0 +1,60 @@
+<%= content_for(:title,  '编辑文件信息 | Koogle') %>
+<section class="content-header">
+  <h1>
+    文件云存储 <small>编辑文件</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> 数据中心</a></li>
+    <li><i class="fa fa-skyatlas"></i> 文件云存储</li>
+    <li class="active"><i class="fa fa-edit"></i> 重命名文件</li>
+  </ol>
+</section>
+<section class="content">
+  <div style="padding-top: 10px">
+    <div class="box box-warning">
+      <div class="box-header">
+        <h3 class="box-title">文件重命名</h3>
+      </div>
+      <form action="<%= update_file_path%>" method="post">
+        <div class="box-body">
+          <div class="col-sm-6">
+            <div class="form-group has-success">
+              <label>文件预览</label>
+              <div class="input-group">
+                <% if @file.mine_type.include?('image') %>
+                  <img src="<%= Settings.qiniu_cdn_host + @file.key %>" width="100%">
+                <% elsif @file.mine_type.include?('video') %>
+                  <video id="mediablah" controls="controls" src="<%= Settings.qiniu_cdn_host + @file.key %>" width="100%"></video>
+                <% end %>
+              </div>
+            </div>
+            <div class="form-group has-warning">
+              <label>原文件名</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-bookmark"></i>
+                </div>
+                <input type="text" value="<%= @file.key %>" class="form-control" readonly>
+                <input type="hidden" name="id" value="<%= @file.id %>" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="form-group has-error">
+              <label>新文件名</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-heart-empty"></i>
+                </div>
+                <input type="text" name="new" placeholder="请键入新名称（无须添加扩展名）" class="form-control">
+              </div>
+            </div>
+            <hr>
+            <div>
+              <button type="submit" class="btn bg-orange btn-flat" style="width: 120px">提交</button>
+              <a href="<%= admin_files_path %>" class="btn bg-navy btn-flat" style="width: 120px">取消</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

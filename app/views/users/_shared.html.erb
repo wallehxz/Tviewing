@@ -1,0 +1,17 @@
+
+  <p style="padding-bottom: 10px;color: white">- OR -</p>
+  <% if controller_name != 'registrations' %>
+  <a href="<%= sign_up_path %>" class="btn btn-block blue btn-flat">
+    <i class="fa fa-user-plus"></i> 注册账户
+  </a>
+  <% end %>
+  <% if controller_name != 'sessions' %>
+  <a href="<%= sign_in_path %>" class="btn btn-block btn-social blue">
+    <i class="fa fa-vcard"></i> 登录账户
+  </a>
+  <% end %>
+  <% if controller_name != 'passwords' %>
+  <a href="<%= forgot_password_path %>" class="btn btn-block btn-social blue">
+    <i class="fa fa-expeditedssl"></i> 找回密码
+  </a>
+  <% end %>

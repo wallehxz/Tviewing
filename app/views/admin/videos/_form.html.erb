@@ -1,0 +1,99 @@
+<%= form_for(['admin',@column, @video]) do |f| %>
+<div class="box-body">
+  <div style="float: left;">
+    <div class="col-sm-4">
+      <div class="form-group has-warning">
+        <label>频道归属</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="<%= @column.icon%>"></i>
+          </div>
+          <input type="text" value="<%= @column.name %>" class="form-control" readonly>
+          <%= f.hidden_field :column_id, value:@column.id %>
+        </div>
+      </div>
+      <div class="form-group has-success">
+        <label>是否置顶</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-fire"></i>
+          </div>
+          <%= f.select(:recommend, [['普通',0],['置顶',1]], {},{:class => 'form-control'}) %>
+        </div>
+      </div>
+      <div class="form-group has-success">
+        <label>封面链接</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-link"></i>
+          </div>
+          <%= f.text_field :cover, class:'form-control', placeholder:'(选填)*' %>
+        </div>
+        <img id="imgpre" src="<%= pre_cover @video.cover %>" style="max-width: 100%;padding-top: 10px"/>
+      </div>
+      <div class="form-group has-success">
+        <label>封面文件</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-image"></i>
+          </div>
+          <%= f.file_field :photo_file, class:'form-control', accept:'.jpg,.png,.jpeg,.gif', onChange:"addFileUlr(this,'imgpre')"%>
+        </div>
+      </div>
+      <div class="form-group has-error">
+        <label>类别属性</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-heart-empty"></i>
+          </div>
+          <%= f.select(:video_type, Video.video_type_array, {prompt:'请选择类型'},{:class => 'form-control'}) %>
+        </div>
+      </div>
+      <div class="form-group has-warning">
+        <label>视频时长</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-time"></i>
+          </div>
+          <%= f.text_field :duration, :class => 'form-control', placeholder:'(选填)* ' %>
+        </div>
+      </div>
+      <div class="form-group has-warning">
+        <label>视频标题</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-bookmark"></i>
+          </div>
+          <%= f.text_field :title, class:'form-control', placeholder:'(必填*)' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="float: left;">
+    <div class="col-sm-6">
+      <div class="form-group has-warning">
+        <label>视频链接</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="glyphicon glyphicon-info-sign"></i>
+          </div>
+          <%= f.text_field :video_url, :class => 'form-control', placeholder:'(必填)* ' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="form-group has-feedback">
+      <label>视频简介</label>
+      <div class="input-group">
+        <%= f.text_area :summary, class:'textarea', placeholder:'Place some text here', style:'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;' %>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <button type="submit" class="btn bg-maroon btn-flat" style="width: 120px">提交</button>
+      <a href="<%= channel_path(@column.english) %>" class="btn bg-black btn-flat" style="width: 120px">取消</a>
+    </div>
+  </div>
+</div>
+<% end %>

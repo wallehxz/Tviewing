@@ -1,0 +1,9 @@
+<%= content_for :meta do %>
+  <meta name="keywords" content="Develop by Koogle Zhang">
+  <meta name="description" content="<%= @video.title %>,<%= @video.column.name %>">
+  <meta property="og:title" content="<%= @video.title %> Koogle.cc">
+  <meta property="og:type" content="video">
+  <meta property="og:url" content="<%= Settings.host + show_path(@video.url_code) %>">
+  <meta property="og:image" content="<%= video_cover @video.cover %>">
+  <meta property="og:description" content="<%= @video.title %>">
+<% end %>
