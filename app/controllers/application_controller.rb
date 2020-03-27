@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
   #protect_from_forgery with: :exception
-  before_action :redirect_to_origin
 
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
@@ -14,6 +13,12 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  rescue_from StandardError do |exception|
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end if Rails.env.production?
 
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'
@@ -31,13 +36,4 @@ class ApplicationController < ActionController::Base
   #     end
   #   end
   # end
-
-  def redirect_to_origin
-    if Rails.env.production?
-      unless request.host.include?('koogle.cc')
-        redirect_to "http://#{request.host}"
-      end
-    end
-  end
-
 end
