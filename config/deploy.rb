@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.4.1'
 
-set :application, 'video'
-set :repo_url, 'git@github.com:kooogle/tv.git'
+set :application, 'tviewing'
+set :repo_url, 'https://github.com/kooogle/Tviewing.git'
 set :ssh_options, { keys: %w{~/.ssh/id_rsa}, forward_agent: true, auth_methods: %w(publickey) }
 set :scm, :git
 set :format, :pretty

@@ -279,7 +279,7 @@ i.icon_pull {
   padding-left: 30px;
   margin-right: 10px;
   border:0;
-  width: 360px;
+  width: 300px;
   color:white;
   outline:none;
   background: transparent;
@@ -288,7 +288,8 @@ i.icon_pull {
 }
 
 .serach_form:hover > .search{
-  transition: width 1s;
+  transition: width 2s;
+  /*transition: transform 2s ease-in-out;*/
   width: 550px;
   margin-right: 0px;
   text-align: right;
