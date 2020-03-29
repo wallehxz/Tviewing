@@ -1,11 +1,6 @@
 class Users::ProfilesController < ApplicationController
-  force_ssl if: :ssl_configured?
   before_filter :authenticate_user!
   layout 'user'
-
-  def ssl_configured?
-    !Rails.env.development?
-  end
 
   def avatar
   end

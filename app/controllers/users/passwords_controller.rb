@@ -1,10 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
-  force_ssl if: :ssl_configured?
   layout 'user'
 
-  def ssl_configured?
-    !Rails.env.development?
-  end
   # GET /forgot_password
   def new
     super

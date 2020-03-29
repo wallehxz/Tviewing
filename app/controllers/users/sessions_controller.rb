@@ -1,11 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
-  force_ssl if: :ssl_configured?
-
   layout 'user'
-
-  def ssl_configured?
-    !Rails.env.development?
-  end
 
   def new
   end
